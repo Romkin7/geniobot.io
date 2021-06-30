@@ -1,0 +1,102 @@
+/*Fonts*/
+
+$inter: 'Inter', sans-serif;
+$ibmplexmono: 'IBM Plex Mono', monospace;
+
+/*Colors*/
+$goldenYellow: #ffcf54;
+$darkgray: #333333;
+/*Secondary helpful colors*/
+$white: rgba(255, 255, 255, 1);
+$peachpink: rgba(255, 137, 121, 1);
+$dazzlerose: rgba(255, 77, 202, 1);
+$fuchsia: rgba(233, 48, 255, 1);
+$fandangopink: rgba(228, 77, 136, 1);
+$transparentpeach: rgba(255, 113, 68, 0.0001);
+$halftransparentfandango: rgba(227, 78, 129, 0.594203);
+$transparentrose: rgba(227, 80, 122, 0.0001);
+$transparentblue: rgba(69, 175, 238, 0.0001);
+$darkbluetransp: rgba(67, 177, 236, 0.615533);
+$lightbluetransp: rgba(65, 179, 233, 0.767526);
+$cyan: rgba(62, 183, 229, 1);
+$turquoise: rgba(35, 219, 189, 1);
+$transpturquoise: rgba(30, 224, 183, 0.852977);
+$transpturquoise2: rgba(28, 228, 179, 0.768733);
+$transparentgreen: rgba(27, 229, 177, 0.144475);
+$transparentgreen2: rgba(23, 234, 172, 0.0001);
+$transparentorange: rgba(193, 99, 100, 0.0001);
+$transparentorange2: rgba(193, 108, 103, 0.558792);
+$fuzzywuzzy: rgba(193, 113, 104, 1);
+$copperpenny: rgba(193, 117, 106, 1);
+$yellowgreen: rgba(193, 222, 139, 1);
+$yellowgreen2: rgba(193, 233, 143, 1);
+$yellowgreen3: rgba(193, 239, 145, 1);
+$yellowgreentransp: rgba(193, 247, 147, 0.0001);
+
+$cadet: rgba(38, 34, 80, 0.65);
+$cadet1: rgba(27, 25, 66, 0.85);
+$cadet2: rgba(23, 22, 59, 1);
+$cadet3: rgba(32, 29, 71, 1);
+$cadet4: rgba(23, 21, 58, 0.91);
+
+$patrickblue: rgba(48, 43, 100, 0.65);
+$patrickblue1: rgba(30, 28, 72, 0.85);
+$patrickblue2: rgba(25, 24, 65, 1);
+
+/*Primary colors*/
+
+$snowwhite: rgba(236, 235, 255, 1); //text-color
+
+$golden: rgba(255, 184, 1, 1); //highlighter in icons, main buttons,logo, subscription plan icon, text messages
+$aquagreen: rgba(35, 219, 189, 1); //highlighter in block names, user icons, input borders and edit icons
+
+/*Gradients*/
+$cadetLinear: linear-gradient(180deg, $cadet 0%, $cadet1 57.44%, $cadet2 100%),
+	radial-gradient(50% 50% at 50% 50%, $cadet3 0%, $cadet4 100%); //background color
+$patrickblueLinear: linear-gradient(180deg, $patrickblue 0%, $patrickblue1 58.85%, $patrickblue2 100%); //sidebar color
+$whiteLinear: linear-gradient(180deg, $white 0%, $white 100%); //input-color
+$whiteLinear90: linear-gradient(to bottom, rgba($white, 0.9) 0%, rgba($white, 0.81) 100%); //input-color
+
+$pinkLinear: linear-gradient(
+	231.9deg,
+	$transparentpeach 1.04%,
+	$peachpink 11.89%,
+	$dazzlerose 28.4%,
+	$fuchsia 51.62%,
+	$fandangopink 108.56%,
+	$halftransparentfandango 112.03%,
+	$transparentrose 115.35%
+); //highlight block names,
+
+$greenLinear: linear-gradient(
+	47.83deg,
+	$transparentblue 0%,
+	$darkbluetransp 3.59%,
+	$lightbluetransp 7.69%,
+	$cyan,
+	$turquoise 71.42%,
+	$transpturquoise 80.44%,
+	$transpturquoise2,
+	$transparentgreen 88.61%,
+	$transparentgreen2 95.53%
+); //highlight block names, user icons
+
+$orangeLinear: linear-gradient(
+	44.5deg,
+	$transparentorange -0.75%,
+	$transparentorange2 3.79%,
+	$fuzzywuzzy 7.31%,
+	$copperpenny 10.58%,
+	$yellowgreen 75.51%,
+	$yellowgreen2 78.72%,
+	$yellowgreen3 84%,
+	$yellowgreentransp 90.43%
+); //highlight block names, user icons
+
+/*Buttons*/
+$darkblack: rgba(20, 18, 38, 1); //main buttons
+$lightgrey: rgba(196, 196, 196, 0.1);
+
+/*Borders*/
+$borderRadius: 20px;
+$grey: rgba(69, 68, 91, 0.9); //subscription plans

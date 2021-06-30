@@ -1,0 +1,52 @@
+{
+	"name": "geniobot.io",
+	"version": "1.0.0",
+	"devDependencies": {
+		"eslint": "7.29.0",
+		"husky": "6.0.0"
+	},
+	"private": true,
+	"engines": {
+		"node": ">=14.*",
+		"yarn": ">=1"
+	},
+	"scripts": {
+		"install": "(cd backend && yarn) && (cd geniobot && yarn) && (cd dashboard && yarn)",
+		"lint": "yarn prettier:test && yarn lint:backend && yarn lint:geniobot && yarn lint:dashboard",
+		"lint:backend": "eslint backend/**/*.ts --ext .ts",
+		"lint:geniobot": "eslint geniobot/**/*.ts --ext .ts{x}",
+		"lint:dashboard": "eslint dashboard/**/*.ts --ext .ts{x}",
+		"test": "yarn test:backend && yarn test:frontend",
+		"test:backend": "(cd backend && yarn test)",
+		"test:geniobot": "(cd geniobot && yarn test)",
+		"test:dashboard": "(cd dashboard && yarn test)",
+		"prettier:test": "prettier --check \"/{geniobot,dashboard,backend}/**/*.ts*\"",
+		"prettier:fix": "prettier --write \"/{geniobot,dashboard,backend}/**/*.ts*\""
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn lint",
+			"pre-push": "yarn lint"
+		}
+	},
+	"lint-staged": {
+		"*.{tsx,ts,js,scss}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"prettier": {
+		"printWidth": 140,
+		"semi": true,
+		"useTabs": true,
+		"bracketSpacing": true,
+		"tabWidth": 4,
+		"endOfLine": "auto",
+		"arrowParens": "always",
+		"proseWrap": "always",
+		"singleQuote": true,
+		"trailingComma": "all"
+	},
+	"licence": "MIT",
+	"author": "Roman Tuomisto & Julia Matviishyna"
+}

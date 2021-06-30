@@ -1,0 +1,12 @@
+{
+	"name": "assets",
+	"version": "1.0.0",
+	"description": "Shared assets",
+	"main": "index.d.ts",
+	"typeScriptVersion": "4",
+	"scripts": {
+		"build": "",
+		"start": "",
+		"start:windows": ""
+	}
+}

@@ -1,0 +1,25 @@
+.companylogo {
+	header & {
+		padding-top: 3vh;
+	}
+}
+
+.header-icon {
+	background: $pinkLinear;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: $fandangopink;
+	margin-right: 0.2vw;
+	position: relative;
+	top: 5px;
+}
+
+header {
+	ul {
+		list-style: none;
+		li {
+			margin-bottom: 2vh;
+		}
+	}
+}

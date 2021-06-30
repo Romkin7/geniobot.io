@@ -1,0 +1,48 @@
+version: '3'
+services:
+    postgres:
+        image: 'postgres:latest'
+        env_file: ./.env
+    redis:
+        image: 'redis:latest'
+        env_file: ./.env
+    nginx:
+        depends_on:
+            - backend
+            - geniobot
+            - dashboard
+        restart: always
+        build:
+            dockerfile: Dockerfile
+            context: ./nginx
+        ports: 
+            - '3050:80'
+    backend:
+        env_file: ./.env
+        build:
+            dockerfile: Dockerfile
+            context: ./backend
+        volumes:
+            - /backend/node_modules
+            - ./backend:/backend
+    geniobot:
+        stdin_open: true
+        build:
+            dockerfile: Dockerfile
+            context: ./geniobot
+        volumes:
+            - /geniobot/node_modules
+            - ./geniobot:/geniobot
+        ports:
+            - '3000:3000'
+    dashboard:
+        stdin_open: true
+        build:
+            dockerfile: Dockerfile
+            context: ./dashboard
+        volumes:
+            - /dashboard/node_modules
+            - ./dashboard:/dashboard
+        ports:
+            - '3001:3001'
+
