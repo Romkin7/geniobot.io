@@ -1,6 +1,6 @@
 # GenioBot.io
 
-<img src="tools/assets/images/app-plan.png" />
+<img src="geniobot/src/assets/images/app-plan.png" />
 
 ## Runnig project
 
