@@ -49,7 +49,7 @@ $snowwhite: rgba(236, 235, 255, 1); //text-color
 
 $golden: rgba(255, 184, 1, 1); //highlighter in icons, main buttons,logo, subscription plan icon, text messages
 $aquagreen: rgba(35, 219, 189, 1); //highlighter in block names, user icons, input borders and edit icons
-
+$spacecadet: rgba(32, 29, 63, 1); //box background color
 /*Gradients*/
 $cadetLinear: linear-gradient(180deg, $cadet 0%, $cadet1 57.44%, $cadet2 100%),
 	radial-gradient(50% 50% at 50% 50%, $cadet3 0%, $cadet4 100%); //background color
@@ -100,3 +100,6 @@ $lightgrey: rgba(196, 196, 196, 0.1);
 /*Borders*/
 $borderRadius: 20px;
 $grey: rgba(69, 68, 91, 0.9); //subscription plans
+
+/*Shadows*/
+$boxShadow: 14px 14px 40px rgba(16, 16, 18, 0.75), -7px -7px 30px rgba(38, 46, 50, 1); //box shadows

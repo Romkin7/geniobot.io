@@ -3,7 +3,8 @@
 //Core partials
 @import '_variables';
 @import '_mixins';
-@import './shared-components/_dashboard-main';
+@import './shared-components/main';
 @import './shared-components/sidebar';
 @import './shared-components/_subscriptionplan.scss';
 @import './shared-elements/header';
+@import './shared-components/_overview.scss';

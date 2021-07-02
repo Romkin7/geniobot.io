@@ -1,11 +1,15 @@
 import React, { FC } from 'react';
-import { ILogo } from '../../@types';
+import { ILogo, PlanType } from '../../@types/index.d';
 import SubscriptionRing from '../Shared/SubscriptionRing';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 const companylogo: ILogo = {
 	src: 'https://res.cloudinary.com/geniobot-io/image/upload/v1624693972/telia-logo_rnc4wl.png',
 	alt: 'Telia logo',
+};
+
+const plantypeicon: PlanType = {
+	icon: 'https://res.cloudinary.com/geniobot-io/image/upload/v1625000773/x-pink_vzexd0.svg',
+	alt: 'free subscription plan icon',
 };
 
 const Header: FC = () => {
@@ -20,15 +24,15 @@ const Header: FC = () => {
 			<section className="specification">
 				<ul>
 					<li>
-						<HighlightOffIcon className="header-icon" />
+						<img src={plantypeicon.icon} alt={plantypeicon.alt} className="header-icon" />
 						Unlimited interactions/month
 					</li>
 					<li>
-						<HighlightOffIcon className="header-icon" />
+						<img src={plantypeicon.icon} alt={plantypeicon.alt} className="header-icon" />
 						API integration
 					</li>
 					<li>
-						<HighlightOffIcon className="header-icon" />
+						<img src={plantypeicon.icon} alt={plantypeicon.alt} className="header-icon" />
 						AI activation
 					</li>
 				</ul>

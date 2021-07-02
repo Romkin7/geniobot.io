@@ -27,8 +27,15 @@ interface ILogo {
 	src: string;
 	alt: string;
 }
+
+export interface PlanType {
+	src?: string;
+	alt?: string;
+	icon?: string;
+	type?: 'free' | 'pro';
+}
 type Statuses = 'Paid' | 'Open invoice';
-type PlanType = 'free' | 'pro';
+/* type PlanType = 'free' | 'pro'; */
 type Languages = 'Finnish' | 'English' | 'Swedish' | 'Russian' | 'Ukrainean';
 type Roles = 'basic' | 'admin';
 export interface IInvoice {
