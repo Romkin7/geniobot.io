@@ -1,0 +1,51 @@
+#automation {
+	display: flex;
+	.category-list {
+		margin-right: 4vw;
+		h4 {
+			font-family: $ibmplexmono;
+			color: $golden;
+			font-size: 1.875rem;
+			font-weight: 400;
+			margin-bottom: 4vh;
+		}
+		.add-icon {
+			position: relative;
+			top: 1vh;
+			cursor: pointer;
+		}
+		.single-category {
+			border: 2px solid $grey;
+			border-radius: $borderRadius;
+			-webkit-border-radius: $borderRadius;
+			-moz-border-radius: $borderRadius;
+			-ms-border-radius: $borderRadius;
+			-o-border-radius: $borderRadius;
+			padding: 4vh 2vw;
+			margin-bottom: 2vh;
+			position: relative;
+
+			.button-section {
+				background-color: $aquagreen;
+			}
+
+			%buttons {
+				position: absolute;
+				background-color: transparent;
+				border-width: 0;
+				color: $snowwhite;
+			}
+
+			.edit-button {
+				@extend %buttons;
+				right: 2vw;
+				bottom: 7vh;
+			}
+			.delete-button {
+				@extend %buttons;
+				right: 2vw;
+				bottom: 0;
+			}
+		}
+	}
+}
