@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
-const stateex = {
+/* const stateex = {
 	labels: ['January', 'February', 'March', 'April', 'May'],
 	datasets: [
 		{
@@ -15,17 +15,32 @@ const stateex = {
 			data: [65, 59, 80, 120, 56],
 		},
 	],
-};
+}; */
+
+interface ChartLineProps {
+	labels?: string[];
+	datasets?: {
+		label?: string;
+		fill?: boolean;
+		lineTension?: number;
+		backgroundColor?: string;
+		borderColor?: string;
+		borderWidth?: number;
+		data?: number[];
+	}[];
+}
 
 const ChartLine: FC = () => {
-	const [state, setState] = useState({});
+	const [chartstate, setChartState] = useState<ChartLineProps>({});
 
-	const findmonth = () => {
+	useEffect(() => {
+		let chartmonths: string[] = [];
 		/* const currentdate = new Date(); */
 		/* const currentmonth = month[currentdate.getMonth()]; */
 		const month = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec'];
 		let chartmonthend = [];
 		let chartmonthstart = [];
+
 		const history = 9; /*how many months before to show + current month*/
 		const startmonth = new Date(new Date().getFullYear(), new Date().getMonth() - history, new Date().getDate()).getMonth();
 
@@ -39,14 +54,30 @@ const ChartLine: FC = () => {
 		for (let i = 0; i < startgap + 1; i++) {
 			chartmonthstart.push(month[i]);
 		}
-		let chartmonths = chartmonthend.concat(chartmonthstart);
-		console.log(chartmonths);
-	};
+		chartmonths = chartmonthend.concat(chartmonthstart);
+
+		setChartState({
+			labels: chartmonths,
+			datasets: [
+				{
+					label: 'Interactions',
+					fill: false,
+					lineTension: 0.5,
+					backgroundColor: 'rgba(35, 219, 189, 1)',
+					borderColor: 'rgba(255, 184, 1, 1)',
+
+					borderWidth: 2,
+					data: [65, 59, 80, 120, 56, 45, 7, 87, 91, 40],
+				},
+			],
+		});
+	}, []);
+
 	return (
 		<div>
 			<Line
 				type={'line'}
-				data={stateex}
+				data={chartstate}
 				options={{
 					title: {
 						display: true,
