@@ -18,20 +18,20 @@ import { Line } from 'react-chartjs-2';
 }; */
 
 interface ChartLineProps {
-	labels?: string[];
-	datasets?: {
+	labels: string[];
+	datasets: {
 		label?: string;
 		fill?: boolean;
 		lineTension?: number;
-		backgroundColor?: string;
-		borderColor?: string;
-		borderWidth?: number;
-		data?: number[];
+		backgroundColor: string;
+		borderColor: string;
+		borderWidth: number;
+		data: number[];
 	}[];
 }
 
 const ChartLine: FC = () => {
-	const [chartstate, setChartState] = useState<ChartLineProps>({});
+	const [chartstate, setChartState] = useState<ChartLineProps | {}>({});
 
 	useEffect(() => {
 		let chartmonths: string[] = [];
