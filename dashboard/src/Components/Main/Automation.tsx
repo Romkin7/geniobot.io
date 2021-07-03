@@ -50,19 +50,19 @@ const Automation: FC = () => {
 			<section className="topics-list">
 				<ul>
 					<li>
-						<FiberManualRecord /> How to connect Telia
+						<FiberManualRecord className="topics-icon" /> How to connect Telia
 					</li>
 					<li>
-						<FiberManualRecord /> How to connect Telia
+						<FiberManualRecord className="topics-icon" /> How to connect Telia
 					</li>
 					<li>
-						<FiberManualRecord /> How to connect Telia
+						<FiberManualRecord className="topics-icon" /> How to connect Telia
 					</li>
 					<li>
-						<FiberManualRecord /> How to connect Telia
+						<FiberManualRecord className="topics-icon" /> How to connect Telia
 					</li>
 					<li>
-						<FiberManualRecord /> How to connect Telia
+						<FiberManualRecord className="topics-icon" /> How to connect Telia
 					</li>
 				</ul>
 			</section>

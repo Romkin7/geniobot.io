@@ -48,4 +48,18 @@
 			}
 		}
 	}
+
+	.topics-list {
+		margin-top: 10vh;
+
+		li {
+			margin-bottom: 2vh;
+		}
+	}
+
+	.topics-icon {
+		color: $lavender;
+		position: relative;
+		top: 0.8vh;
+	}
 }
