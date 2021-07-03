@@ -3,12 +3,13 @@ import { Switch, Route } from 'react-router-dom';
 import Overview from './Overview';
 import Invoices from './Invoices';
 import Messages from './Messages';
-import Automation from './Automation';
+import Automation from './Automation/Automation';
 import Intellect from './Intellect';
 import Api from './Api';
 import Settings from './Settings';
 import Help from './Help';
 import Administrator from './Administrator';
+import SingleTopic from './Automation/SingleTopic';
 
 const Main: FC = () => {
 	return (
@@ -40,6 +41,9 @@ const Main: FC = () => {
 				</Route>
 				<Route path="/administrator">
 					<Administrator />
+				</Route>
+				<Route path="/aotomation/:id">
+					<SingleTopic />
 				</Route>
 			</Switch>
 		</main>
