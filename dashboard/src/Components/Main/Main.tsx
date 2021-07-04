@@ -4,7 +4,7 @@ import Overview from './Overview';
 import Invoices from './Invoices';
 import Messages from './Messages';
 import Automation from './Automation/Automation';
-import Intellect from './Intellect';
+import Intellect from './Intellect/Intellect';
 import Api from './Api';
 import Settings from './Settings';
 import Help from './Help';
