@@ -1,0 +1,82 @@
+#automation {
+	display: flex;
+	.category-list {
+		margin-right: 4vw;
+		h4 {
+			font-family: $ibmplexmono;
+			color: $golden;
+			font-size: 1.875rem;
+			font-weight: 400;
+			margin-bottom: 4vh;
+		}
+		.active,
+		a:hover {
+			.button-section {
+				background-color: $aquagreen;
+				width: 4rem;
+				height: 17vh;
+				border-radius: 16px;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				-webkit-border-radius: 16px;
+				-moz-border-radius: 16px;
+				-ms-border-radius: 16px;
+				-o-border-radius: 16px;
+			}
+
+			.single-category {
+				border: 2px solid $aquagreen;
+			}
+		}
+		.add-icon {
+			position: relative;
+			top: 1vh;
+			cursor: pointer;
+		}
+		.single-category {
+			border: 2px solid $grey;
+			font-size: 1.563rem;
+			border-radius: $borderRadius;
+			-webkit-border-radius: $borderRadius;
+			-moz-border-radius: $borderRadius;
+			-ms-border-radius: $borderRadius;
+			-o-border-radius: $borderRadius;
+			padding: 6vh 2vw;
+			margin-bottom: 2vh;
+			position: relative;
+
+			%buttons {
+				position: absolute;
+				background-color: transparent;
+				border-width: 0;
+				color: $snowwhite;
+			}
+
+			.edit-button {
+				@extend %buttons;
+				right: 1.5vw;
+				bottom: 9vh;
+			}
+			.delete-button {
+				@extend %buttons;
+				right: 1.5vw;
+				bottom: 1vh;
+			}
+		}
+	}
+
+	.topics-list {
+		margin-top: 10vh;
+
+		li {
+			margin-bottom: 2vh;
+		}
+	}
+
+	.topics-icon {
+		color: $lavender;
+		position: relative;
+		top: 0.8vh;
+	}
+}
