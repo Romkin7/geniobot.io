@@ -9,6 +9,26 @@
 			font-weight: 400;
 			margin-bottom: 4vh;
 		}
+		.active,
+		a:hover {
+			.button-section {
+				background-color: $aquagreen;
+				width: 4rem;
+				height: 17vh;
+				border-radius: 16px;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				-webkit-border-radius: 16px;
+				-moz-border-radius: 16px;
+				-ms-border-radius: 16px;
+				-o-border-radius: 16px;
+			}
+
+			.single-category {
+				border: 2px solid $aquagreen;
+			}
+		}
 		.add-icon {
 			position: relative;
 			top: 1vh;
@@ -16,18 +36,15 @@
 		}
 		.single-category {
 			border: 2px solid $grey;
+			font-size: 1.563rem;
 			border-radius: $borderRadius;
 			-webkit-border-radius: $borderRadius;
 			-moz-border-radius: $borderRadius;
 			-ms-border-radius: $borderRadius;
 			-o-border-radius: $borderRadius;
-			padding: 4vh 2vw;
+			padding: 6vh 2vw;
 			margin-bottom: 2vh;
 			position: relative;
-
-			.button-section {
-				background-color: $aquagreen;
-			}
 
 			%buttons {
 				position: absolute;
@@ -38,13 +55,13 @@
 
 			.edit-button {
 				@extend %buttons;
-				right: 2vw;
-				bottom: 7vh;
+				right: 1.5vw;
+				bottom: 9vh;
 			}
 			.delete-button {
 				@extend %buttons;
-				right: 2vw;
-				bottom: 0;
+				right: 1.5vw;
+				bottom: 1vh;
 			}
 		}
 	}

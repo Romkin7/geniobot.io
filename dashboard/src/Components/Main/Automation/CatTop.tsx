@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { AddCircleOutline, Edit, DeleteOutline, FiberManualRecord } from '@material-ui/icons';
-import { Switch, Route, NavLink, Link, useRouteMatch, useLocation } from 'react-router-dom';
+import { Switch, Route, NavLink, Link, useRouteMatch } from 'react-router-dom';
 
 interface CatTopProps {
 	catname: string;
@@ -11,8 +11,7 @@ interface CatTopProps {
 
 const CatTop: FC<CatTopProps> = ({ catname, topicname, topicid }) => {
 	let { path, url } = useRouteMatch();
-	let location = useLocation();
-	console.log(location);
+
 	return (
 		<>
 			<section className="category-list">
@@ -20,24 +19,24 @@ const CatTop: FC<CatTopProps> = ({ catname, topicname, topicid }) => {
 					Categories <AddCircleOutline style={{ fontSize: 30 }} className="add-icon" />
 				</h4>
 
-				<div className="single-category">
-					<NavLink to={`${url}/${catname.split(' ').join('-')}`}>
+				<NavLink to={`${url}/${catname.split(' ').join('-')}`}>
+					<div className="single-category">
 						{catname}
 						<div className="button-section">
 							<button className="edit-button">
-								<Edit style={{ fontSize: 25 }} />
+								<Edit style={{ fontSize: 30 }} />
 							</button>
 							<button className="delete-button">
-								<DeleteOutline style={{ fontSize: 25 }} />
+								<DeleteOutline style={{ fontSize: 30 }} />
 							</button>
 						</div>
-					</NavLink>
-				</div>
+					</div>
+				</NavLink>
 			</section>
 
 			<section className="topics-list">
 				<Switch>
-					<Route path={path}>
+					<Route exact path={path}>
 						<ul>
 							<li>
 								<Link
@@ -57,6 +56,7 @@ const CatTop: FC<CatTopProps> = ({ catname, topicname, topicid }) => {
 						<ul>
 							<li>Topics for this {catname} category</li>
 						</ul>
+						hello hello
 					</Route>
 				</Switch>
 			</section>
