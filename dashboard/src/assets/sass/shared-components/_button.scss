@@ -1,7 +1,6 @@
 .mod-buttons {
-	display: block;
-	margin: 0 auto;
-	width: 20vw;
+	display: flex;
+	justify-content: center;
 	.modal-button {
 		background-color: $darkblack;
 		color: $golden;
@@ -17,6 +16,9 @@
 
 		&:nth-child(2) {
 			margin-left: 5vw;
+		}
+		&:hover {
+			color: $goldenYellow;
 		}
 	}
 }
