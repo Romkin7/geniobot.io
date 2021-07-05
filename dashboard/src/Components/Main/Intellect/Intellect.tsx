@@ -11,7 +11,7 @@ const Intellect: FC = () => {
 			</p>
 			<Question question="Where can i buy telephone card in FI?" />
 			<div className="question">
-				Where can i buy telephone card?
+				Where can i buy telephone card - just to show more q?
 				<div className="button-section">
 					<button className="edit-button">
 						<Edit style={{ fontSize: 30 }} />
