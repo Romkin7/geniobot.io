@@ -1,15 +1,7 @@
 import React, { FC } from 'react';
 import { Edit, DeleteOutline } from '@material-ui/icons';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import Input from '@material-ui/core/Input';
-import Chip from '@material-ui/core/Chip';
-import MenuItem from '@material-ui/core/MenuItem';
+import { Modal, Backdrop, Fade, FormControl, InputLabel, Select, Input, Chip, MenuItem } from '@material-ui/core';
 
 interface QuestioProps {
 	question: string;
@@ -31,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	formControl: {
 		margin: theme.spacing(1),
-		minWidth: 120,
+		minWidth: '100%',
 		/* maxWidth: 300, */
 	},
 	chips: {
@@ -43,50 +35,44 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function getStyles(name: any, personName: any, theme: any) {
+function getStyles(name: any, categoryName: any, theme: any) {
 	return {
-		fontWeight: personName.indexOf(name) === -1 ? theme.typography.fontWeightRegular : theme.typography.fontWeightMedium,
+		fontWeight: categoryName.indexOf(name) === -1 ? theme.typography.fontWeightRegular : theme.typography.fontWeightMedium,
 	};
 }
 
 const Question: FC<QuestioProps> = ({ question }) => {
 	const classes = useStyles();
+	/*delete button*/
 	const [opendelete, setOpenDelete] = React.useState(false);
+	/*edit button*/
 	const [openedit, setOpenEdit] = React.useState(false);
-	const [personName, setPersonName] = React.useState([]);
+	/*category names in select*/
+	const [categoryName, setcategoryName] = React.useState([]);
 	const theme = useTheme();
 
 	/*multiple select*/
 	const handleChange = (event: any) => {
-		setPersonName(event.target.value);
+		setcategoryName(event.target.value);
 	};
-
+	/*open delete button*/
 	const handleOpenDelete = () => {
 		setOpenDelete(true);
 	};
+	/*open edit button*/
 	const handleOpenEdit = () => {
 		setOpenEdit(true);
 	};
-
+	/*close delete button*/
 	const handleCloseDelete = () => {
 		setOpenDelete(false);
 	};
+	/*close edit button*/
 	const handleCloseEdit = () => {
 		setOpenEdit(false);
 	};
-
-	const names = [
-		'Oliver Hansen',
-		'Van Henry',
-		'April Tucker',
-		'Ralph Hubbard',
-		'Omar Alexander',
-		'Carlos Abbott',
-		'Miriam Wagner',
-		'Bradley Wilkerson',
-		'Virginia Andrews',
-		'Kelly Snyder',
-	];
+	/*category names*/
+	const names = ['Internet', 'Telephone', 'Business', 'Private'];
 	const ITEM_HEIGHT = 48;
 	const ITEM_PADDING_TOP = 8;
 	const MenuProps = {
@@ -109,7 +95,7 @@ const Question: FC<QuestioProps> = ({ question }) => {
 					<DeleteOutline style={{ fontSize: 30 }} />
 				</button>
 			</div>
-			{/*  delete modal */}
+			{/*  delete button modal */}
 			<Modal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"
@@ -136,7 +122,7 @@ const Question: FC<QuestioProps> = ({ question }) => {
 				</Fade>
 			</Modal>
 
-			{/*  edit modal */}
+			{/*  edit button modal */}
 			<Modal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"
@@ -152,14 +138,14 @@ const Question: FC<QuestioProps> = ({ question }) => {
 				<Fade in={openedit}>
 					<div className={classes.paper}>
 						<h4 id="transition-modal-title2">Choose category where you want to move this question </h4>
-						{/* <p id="transition-modal-description2">here will be list of categories</p> */}
+
 						<FormControl className={classes.formControl}>
 							<InputLabel id="demo-mutiple-chip-label"></InputLabel>
 							<Select
 								labelId="demo-mutiple-chip-label"
 								id="demo-mutiple-chip"
 								multiple
-								value={personName}
+								value={categoryName}
 								onChange={handleChange}
 								input={<Input id="select-multiple-chip" />}
 								renderValue={(selected: any) => (
@@ -172,7 +158,7 @@ const Question: FC<QuestioProps> = ({ question }) => {
 								MenuProps={MenuProps}
 							>
 								{names.map((name) => (
-									<MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
+									<MenuItem key={name} value={name} style={getStyles(name, categoryName, theme)}>
 										{name}
 									</MenuItem>
 								))}

@@ -5,7 +5,7 @@
 
 	.question {
 		margin-bottom: 2vh;
-		padding: 6vh 2vw;
+		padding: 6vh 12vw 6vh 2vw;
 		border: 1px solid $aquagreen;
 		border-radius: $borderRadius;
 		-webkit-border-radius: $borderRadius;
@@ -57,5 +57,9 @@
 }
 
 .MuiSelect-icon {
-	color: $golden;
+	color: $golden !important;
+}
+
+.MuiChip-label {
+	font-family: $ibmplexmono;
 }
