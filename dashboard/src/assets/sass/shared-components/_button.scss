@@ -1,0 +1,24 @@
+.mod-buttons {
+	display: flex;
+	justify-content: center;
+	.modal-button {
+		background-color: $darkblack;
+		color: $golden;
+		padding: 2vw;
+		border-radius: $borderRadius;
+		-webkit-border-radius: $borderRadius;
+		-moz-border-radius: $borderRadius;
+		-ms-border-radius: $borderRadius;
+		-o-border-radius: $borderRadius;
+		border-color: transparent;
+		margin-top: 2vh;
+		font-size: 1.3rem;
+
+		&:nth-child(2) {
+			margin-left: 5vw;
+		}
+		&:hover {
+			color: $goldenYellow;
+		}
+	}
+}
