@@ -5,7 +5,7 @@ import Invoices from './Invoices';
 import Messages from './Messages';
 import Automation from './Automation/Automation';
 import Intellect from './Intellect/Intellect';
-import Api from './Api';
+import Api from './API/Api';
 import Settings from './Settings';
 import Help from './Help';
 import Administrator from './Administrator';
