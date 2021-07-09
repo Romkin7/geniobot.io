@@ -30,11 +30,9 @@
 
 		%buttons {
 			position: absolute;
-			background-color: transparent;
-			border-width: 0;
+
 			color: $snowwhite;
 		}
-
 		.edit-button {
 			@extend %buttons;
 			right: 1.5vw;
