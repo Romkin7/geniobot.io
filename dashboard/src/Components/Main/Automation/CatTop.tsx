@@ -16,7 +16,7 @@ const CatTop: FC<CatTopProps> = ({ catname, topicname, topicid }) => {
 		<>
 			<section className="category-list">
 				<h4>
-					Categories <AddCircleOutline style={{ fontSize: 30 }} className="add-icon" />
+					Categories <AddCircleOutline style={{ fontSize: 30 }} className="add-icon" role="button" />
 				</h4>
 
 				<NavLink to={`${url}/${catname.split(' ').join('-')}`}>
