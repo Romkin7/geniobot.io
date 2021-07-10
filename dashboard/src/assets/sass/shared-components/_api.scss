@@ -9,15 +9,10 @@
 		font-weight: 400;
 	}
 	.single-api {
-		margin: 0 2vw 4vh 0;
+		@extend %box;
+
 		padding: 4vh;
-		border-radius: $borderRadius;
-		-webkit-border-radius: $borderRadius;
-		-moz-border-radius: $borderRadius;
-		-ms-border-radius: $borderRadius;
-		-o-border-radius: $borderRadius;
-		background: $spacecadet;
-		box-shadow: $boxShadow;
+
 		position: relative;
 
 		.section-buttons {

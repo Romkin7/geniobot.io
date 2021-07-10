@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Overview from './Overview';
-import Invoices from './Invoices';
+import Invoices from '../Invoices/Invoices';
 import Messages from './Messages';
 import Automation from './Automation/Automation';
 import Intellect from './Intellect/Intellect';

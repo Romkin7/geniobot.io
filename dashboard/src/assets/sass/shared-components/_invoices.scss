@@ -1,0 +1,41 @@
+#invoices {
+	p {
+		&:nth-child(3) {
+			margin-bottom: 4vh;
+		}
+	}
+	.openinv {
+		padding: 4vh 0.2vw;
+		border: 1px solid $aquagreen;
+		border-radius: $borderRadius;
+		-webkit-border-radius: $borderRadius;
+		-moz-border-radius: $borderRadius;
+		-ms-border-radius: $borderRadius;
+		-o-border-radius: $borderRadius;
+		margin: 4vh 0;
+	}
+	.invoice-box {
+		@extend %box;
+		display: flex;
+		justify-content: space-between;
+
+		h4 {
+			font-weight: 400;
+			margin-bottom: 2vh;
+			@extend .gradheading;
+			font-size: 1.5rem;
+		}
+		img {
+			align-self: center;
+			width: 4vw;
+		}
+		.amount {
+			@extend .gradheading;
+			font-size: 1.5rem;
+			align-self: center;
+		}
+		p {
+			margin-bottom: 2vh;
+		}
+	}
+}

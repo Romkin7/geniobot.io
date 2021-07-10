@@ -71,3 +71,22 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+%box {
+	margin: 0 2vw 4vh 0;
+	padding: 2vh;
+	border-radius: $borderRadius;
+	-webkit-border-radius: $borderRadius;
+	-moz-border-radius: $borderRadius;
+	-ms-border-radius: $borderRadius;
+	-o-border-radius: $borderRadius;
+	background: $spacecadet;
+	box-shadow: $boxShadow;
+}
+
+.gradheading {
+	background: $pinkLinear;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
