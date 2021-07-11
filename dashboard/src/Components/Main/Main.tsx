@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Overview from './Overview';
-import Invoices from '../Invoices/Invoices';
+import Invoices from './Invoices/Invoices';
 import Messages from './Messages';
 import Automation from './Automation/Automation';
 import Intellect from './Intellect/Intellect';
@@ -10,6 +10,7 @@ import Settings from './Settings';
 import Help from './Help';
 import Administrator from './Administrator';
 import SingleTopic from './Automation/SingleTopic';
+import OpenInv from './Invoices/OpenInv';
 
 const Main: FC = () => {
 	return (
@@ -21,6 +22,9 @@ const Main: FC = () => {
 				<Route path="/invoices">
 					<Invoices />
 				</Route>
+				{/* <Route path="/invoices/:id">
+					<OpenInv />
+				</Route> */}
 				<Route path="/messages">
 					<Messages />
 				</Route>

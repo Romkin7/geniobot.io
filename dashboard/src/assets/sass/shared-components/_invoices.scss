@@ -5,37 +5,104 @@
 		}
 	}
 	.openinv {
-		padding: 4vh 0.2vw;
+		padding: 4vh 3vw;
 		border: 1px solid $aquagreen;
 		border-radius: $borderRadius;
 		-webkit-border-radius: $borderRadius;
 		-moz-border-radius: $borderRadius;
 		-ms-border-radius: $borderRadius;
 		-o-border-radius: $borderRadius;
-		margin: 4vh 0;
+		margin: 4vh 2vw 4vh 0;
 	}
 	.invoice-box {
 		@extend %box;
 		display: flex;
 		justify-content: space-between;
+		padding: 3vw;
 
 		h4 {
 			font-weight: 400;
 			margin-bottom: 2vh;
-			@extend .gradheading;
-			font-size: 1.5rem;
+			@include gradheading($pinkLinear);
+			font-size: 1.4rem;
 		}
 		img {
 			align-self: center;
 			width: 4vw;
 		}
 		.amount {
-			@extend .gradheading;
+			@include gradheading($pinkLinear);
 			font-size: 1.5rem;
 			align-self: center;
 		}
 		p {
 			margin-bottom: 2vh;
 		}
+	}
+}
+
+#singleinv {
+	h4 {
+		font-weight: 400;
+		text-align: center;
+		margin-bottom: 4vh;
+		@include gradheading($pinkLinear);
+		font-size: 1.5rem;
+	}
+	.invdata {
+		display: flex;
+		.inv-names {
+			margin-right: 6vw;
+			p {
+				margin-bottom: 2vh;
+			}
+		}
+		.data {
+			margin-right: 10vw;
+			p {
+				margin-bottom: 2vh;
+				&:nth-child(5) {
+					@include gradheading($pinkLinear);
+				}
+			}
+
+			.green {
+				color: $aquagreen;
+			}
+			.red {
+				color: $fuchsia;
+			}
+		}
+	}
+	button {
+		background-color: $darkblack;
+		border-radius: $borderRadius;
+		-webkit-border-radius: $borderRadius;
+		-moz-border-radius: $borderRadius;
+		-ms-border-radius: $borderRadius;
+		-o-border-radius: $borderRadius;
+		padding: 2vw;
+		align-self: center;
+	}
+	#open {
+		max-width: 16vw;
+
+		/* @include gradheading($orangeLinear); */
+		/* background: $orangeLinear; */
+	}
+	#pay {
+		font-size: 1.3rem;
+		font-family: $ibmplexmono;
+		color: $aquagreen;
+		margin-left: 5vw;
+		margin-top: 4vh;
+	}
+	.center-line {
+		position: relative;
+		top: 0.8vh;
+		margin-right: 0.5vw;
+	}
+	img {
+		max-width: 12vw;
 	}
 }
