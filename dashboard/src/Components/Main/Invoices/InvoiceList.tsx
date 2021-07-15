@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
+import { Switch, Route, Link, useRouteMatch, withRouter, RouteComponentProps } from 'react-router-dom';
 import OpenInv from './OpenInv';
 
 interface InvoiceListProps {
@@ -8,9 +8,11 @@ interface InvoiceListProps {
 	duedate: string;
 	amount: number;
 	id: number;
+	match: any;
 }
 
-const InvoiceList: FC<InvoiceListProps> = ({ invnumber, paymentdate, duedate, amount, id }) => {
+const InvoiceList: FC<InvoiceListProps & RouteComponentProps> = ({ invnumber, paymentdate, duedate, amount, id, match }) => {
+	console.log(match);
 	let { path, url } = useRouteMatch();
 	return (
 		<>
@@ -25,7 +27,7 @@ const InvoiceList: FC<InvoiceListProps> = ({ invnumber, paymentdate, duedate, am
 
 				<Link
 					to={{
-						pathname: `${url}/${invnumber}`,
+						pathname: `${match.url}/${invnumber}`,
 						state: { id },
 					}}
 				>
@@ -35,11 +37,8 @@ const InvoiceList: FC<InvoiceListProps> = ({ invnumber, paymentdate, duedate, am
 					/>
 				</Link>
 			</div>
-			<Route path={`${path}/${invnumber}`}>
-				<OpenInv />
-			</Route>
 		</>
 	);
 };
 
-export default InvoiceList;
+export default withRouter(InvoiceList);

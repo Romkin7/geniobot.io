@@ -90,12 +90,15 @@
 		/* @include gradheading($orangeLinear); */
 		/* background: $orangeLinear; */
 	}
-	#pay {
+	.pay {
 		font-size: 1.3rem;
 		font-family: $ibmplexmono;
 		color: $aquagreen;
 		margin-left: 5vw;
 		margin-top: 4vh;
+	}
+	.not-pay {
+		display: none;
 	}
 	.center-line {
 		position: relative;

@@ -22,9 +22,9 @@ const Main: FC = () => {
 				<Route path="/invoices">
 					<Invoices />
 				</Route>
-				{/* <Route path="/invoices/:id">
+				<Route path={'/invoices/:id'}>
 					<OpenInv />
-				</Route> */}
+				</Route>
 				<Route path="/messages">
 					<Messages />
 				</Route>

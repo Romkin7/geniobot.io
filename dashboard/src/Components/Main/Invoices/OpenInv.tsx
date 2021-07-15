@@ -3,7 +3,7 @@ import { CheckCircleOutline } from '@material-ui/icons';
 
 interface OpenInvProps {
 	number: number;
-	status: string;
+	status: boolean;
 	invdate: string;
 	paymentdate: string;
 	duedate: string;
@@ -14,21 +14,13 @@ interface OpenInvProps {
 const OpenInv: FC = () => {
 	const [invdata, setInvdata] = useState<OpenInvProps>({
 		number: 987654321,
-		status: 'Open',
+		status: true,
 		invdate: '05.07.2021',
 		paymentdate: '10.07.2021',
 		duedate: '15.07.2021',
 		sum: 50,
 		id: 1,
 	});
-
-	/* const [showpaybutton, setShowpaybutton] = useState<boolean>(false);
-
-	if (invdata.status === 'Open') {
-		setShowpaybutton(true);
-	} else {
-		setShowpaybutton(false);
-	} */
 
 	return (
 		<section id="singleinv">
@@ -43,7 +35,7 @@ const OpenInv: FC = () => {
 				</div>
 				<div className="data">
 					<p>
-						<CheckCircleOutline className={`center-line ${invdata.status === 'Open' ? 'red' : 'green'}`} />
+						<CheckCircleOutline className={`center-line ${invdata.status ? 'red' : 'green'}`} />
 						{invdata.status}
 					</p>
 					<p>{invdata.invdate}</p>
@@ -59,7 +51,7 @@ const OpenInv: FC = () => {
 				</button>
 			</div>
 
-			{/* {showpaybutton && <button id="pay">Pay online</button>} */}
+			<button className={`pay ${invdata.status ? '' : 'not-pay'}`}>Pay online</button>
 		</section>
 	);
 };
