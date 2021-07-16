@@ -38,6 +38,17 @@ type Statuses = 'Paid' | 'Open invoice';
 /* type PlanType = 'free' | 'pro'; */
 type Languages = 'Finnish' | 'English' | 'Swedish' | 'Russian' | 'Ukrainean';
 type Roles = 'basic' | 'admin';
+
+export interface InvoiceData {
+	number: number;
+	status?: boolean;
+	invdate?: string;
+	paymentdate: string;
+	duedate: string;
+	sum: number;
+	id: number;
+}
+
 export interface IInvoice {
 	invoiceNumber: string;
 	dueDate: Date;

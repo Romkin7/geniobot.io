@@ -1,19 +1,59 @@
-import React, { FC } from 'react';
-import InvoiceList from './InvoiceList';
-import { Switch, Route, NavLink, Link, useRouteMatch } from 'react-router-dom';
+import React, { FC, useState, useEffect } from 'react';
+import InvoiceBox from './InvoiceBox';
+
 import OpenInv from './OpenInv';
+import axios from 'axios';
+import { InvoiceData } from '../../../@types';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 const Invoices: FC = () => {
-	let { path, url } = useRouteMatch();
+	const [invlist, setInvlist] = useState<InvoiceData[] | null>(null);
+	let location = useLocation();
+	let { id } = useParams<any>();
+	console.log(location);
+	useEffect(() => {
+		if (!invlist) {
+			axios.get('http://localhost:3010/invoices').then((res) => setInvlist(res.data));
+		}
+		console.log(invlist);
+	});
+
+	const notpaidinvoice = invlist?.filter((invoice) => {
+		return invoice.status === false;
+	});
+	notpaidinvoice ? console.log(notpaidinvoice[0].number) : console.log('nothing');
+
+	/* let { path, url } = useRouteMatch(); */
+	const invoices = invlist?.map((invoice: InvoiceData) => {
+		return (
+			<InvoiceBox
+				key={invoice.id}
+				number={invoice.number}
+				paymentdate={invoice.paymentdate}
+				duedate={invoice.duedate}
+				sum={invoice.sum}
+				id={invoice.id}
+			/>
+		);
+	});
 	return (
 		<section id="invoices">
 			<p>Here you can find all invoices with geniobot.io</p>
-			<p className="openinv">
-				Open invoices <span>(0)</span>
-			</p>
-			<p>Paid invoices</p>
-			<InvoiceList invnumber={987456321} paymentdate="10.07.2021" duedate="15.07.2021" amount={50} id={12} />
-			<OpenInv />
+			{notpaidinvoice ? (
+				<Link
+					to={{
+						pathname: `invoices/${notpaidinvoice[0].number}`,
+						state: { id },
+					}}
+				>
+					<p className="openinv">Open invoices ({notpaidinvoice.length})</p>
+				</Link>
+			) : (
+				<p className="openinv">Open invoices (0)</p>
+			)}
+
+			<p className="paid">Paid invoices</p>
+			{invoices}
 		</section>
 	);
 };

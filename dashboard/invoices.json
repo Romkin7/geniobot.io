@@ -1,0 +1,31 @@
+{
+	"invoices": [
+		{
+			"number": 987654321,
+			"status": true,
+			"invdate": "05.07.2021",
+			"paymentdate": "10.07.2021",
+			"duedate": "15.07.2021",
+			"sum": 50,
+			"id": 1
+		},
+		{
+			"number": 987654322,
+			"status": true,
+			"invdate": "05.07.2021",
+			"paymentdate": "10.07.2021",
+			"duedate": "15.07.2021",
+			"sum": 50,
+			"id": 2
+		},
+		{
+			"number": 987654323,
+			"status": false,
+			"invdate": "05.07.2021",
+			"paymentdate": "10.07.2021",
+			"duedate": "15.07.2021",
+			"sum": 50,
+			"id": 3
+		}
+	]
+}
