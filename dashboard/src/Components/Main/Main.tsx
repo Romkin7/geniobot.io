@@ -10,45 +10,23 @@ import Settings from './Settings';
 import Help from './Help';
 import Administrator from './Administrator';
 import SingleTopic from './Automation/SingleTopic';
-import OpenInv from './Invoices/OpenInv';
+import ShowInvoice from './Invoices/ShowInvoice';
 
 const Main: FC = () => {
 	return (
 		<main>
 			<Switch>
-				<Route path="/" exact>
-					<Overview />
-				</Route>
-				<Route path="/invoices">
-					<Invoices />
-				</Route>
-				<Route path={'/invoices/:id'}>
-					<OpenInv />
-				</Route>
-				<Route path="/messages">
-					<Messages />
-				</Route>
-				<Route path="/automation">
-					<Automation />
-				</Route>
-				<Route path="/intellect">
-					<Intellect />
-				</Route>
-				<Route path="/api-list">
-					<Api />
-				</Route>
-				<Route path="/settings">
-					<Settings />
-				</Route>
-				<Route path="/help">
-					<Help />
-				</Route>
-				<Route path="/administrator">
-					<Administrator />
-				</Route>
-				<Route path="/aotomation/:id">
-					<SingleTopic />
-				</Route>
+				<Route path="/" exact component={Overview} />
+				<Route path="/invoices" exact component={Invoices} />
+				<Route path={'/invoices/:id'} component={ShowInvoice} />
+				<Route path="/messages" component={Messages} />
+				<Route path="/automation" exact component={Automation} />
+				<Route path="/automation/:id" component={SingleTopic} />
+				<Route path="/intellect" component={Intellect} />
+				<Route path="/api-list" component={Api} />
+				<Route path="/settings" component={Settings} />
+				<Route path="/help" component={Help} />
+				<Route path="/administrator" component={Administrator} />
 			</Switch>
 		</main>
 	);

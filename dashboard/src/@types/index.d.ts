@@ -39,22 +39,16 @@ type Statuses = 'Paid' | 'Open invoice';
 type Languages = 'Finnish' | 'English' | 'Swedish' | 'Russian' | 'Ukrainean';
 type Roles = 'basic' | 'admin';
 
-export interface InvoiceData {
+export interface Invoice {
 	number: number;
-	status?: boolean;
-	invdate?: string;
-	paymentdate: string;
-	duedate: string;
+	paid: boolean;
+	createdAt: string;
+	paymentDate: string;
+	dueDate: string;
 	sum: number;
 	id: number;
 }
 
-export interface IInvoice {
-	invoiceNumber: string;
-	dueDate: Date;
-	paymentDate: Date;
-	sum: number;
-}
 export interface IFullInvoice extends IInvoice {
 	status: Statuses;
 	createdAt: Date;

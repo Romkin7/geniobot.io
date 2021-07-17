@@ -1,59 +1,56 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, useCallback } from 'react';
 import InvoiceBox from './InvoiceBox';
 
-import OpenInv from './OpenInv';
+import OpenInv from './ShowInvoice';
 import axios from 'axios';
-import { InvoiceData } from '../../../@types';
+import { Invoice } from '../../../@types';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
 const Invoices: FC = () => {
-	const [invlist, setInvlist] = useState<InvoiceData[] | null>(null);
+	const [invoices, setInvoices] = useState<Invoice[] | null>(null);
+	const [openInvoices, setOpenInvoices] = useState<Invoice[] | null>(null);
 	let location = useLocation();
 	let { id } = useParams<any>();
-	console.log(location);
+	//console.log(location);
+
+	const updateOpenInvoices = useCallback(() => {
+		const filteredInvoices = invoices?.filter((invoice: Invoice) => {
+			return !invoice.paid;
+		});
+		setOpenInvoices(filteredInvoices as Invoice[]);
+	}, [invoices, setOpenInvoices]);
+
 	useEffect(() => {
-		if (!invlist) {
-			axios.get('http://localhost:3010/invoices').then((res) => setInvlist(res.data));
+		if (!invoices) {
+			axios.get('invoices.json').then((res: any) => {
+				console.log(res.data)
+				setInvoices(res.data.invoices);
+				updateOpenInvoices();
+			});
 		}
-		console.log(invlist);
-	});
+	}, [setInvoices, invoices, updateOpenInvoices]);
 
-	const notpaidinvoice = invlist?.filter((invoice) => {
-		return invoice.status === false;
-	});
-	notpaidinvoice ? console.log(notpaidinvoice[0].number) : console.log('nothing');
-
-	/* let { path, url } = useRouteMatch(); */
-	const invoices = invlist?.map((invoice: InvoiceData) => {
-		return (
-			<InvoiceBox
-				key={invoice.id}
-				number={invoice.number}
-				paymentdate={invoice.paymentdate}
-				duedate={invoice.duedate}
-				sum={invoice.sum}
-				id={invoice.id}
-			/>
-		);
-	});
 	return (
 		<section id="invoices">
 			<p>Here you can find all invoices with geniobot.io</p>
-			{notpaidinvoice ? (
+			{openInvoices ? (
 				<Link
 					to={{
-						pathname: `invoices/${notpaidinvoice[0].number}`,
+						pathname: `invoices/${openInvoices[0].number}`,
 						state: { id },
 					}}
 				>
-					<p className="openinv">Open invoices ({notpaidinvoice.length})</p>
+					<p className="openinv">Open invoices ({openInvoices.length})</p>
 				</Link>
 			) : (
 				<p className="openinv">Open invoices (0)</p>
 			)}
 
 			<p className="paid">Paid invoices</p>
-			{invoices}
+			{invoices?.length &&
+				invoices.map((invoice: Invoice) => {
+					return <InvoiceBox key={invoice.id} invoice={invoice} />;
+				})}
 		</section>
 	);
 };
