@@ -1,13 +1,6 @@
 .overview-box {
 	margin: 0 2vw 4vh 0;
-	padding: 2vh;
-	border-radius: $borderRadius;
-	-webkit-border-radius: $borderRadius;
-	-moz-border-radius: $borderRadius;
-	-ms-border-radius: $borderRadius;
-	-o-border-radius: $borderRadius;
-	background: $spacecadet;
-	box-shadow: $boxShadow;
+	@extend %box;
 	h4 {
 		font-weight: 500;
 		margin-bottom: 6vh;
