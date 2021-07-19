@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import Categories from './Categories';
 import Topics from './Topics'; */
 import { BrowserRouter as Router } from 'react-router-dom';
-import CatTop from './CatTop';
+import CatTop from '../Components/Main/Automation/CatTop';
 
 /* interface AutomationProps {
 	category: string;

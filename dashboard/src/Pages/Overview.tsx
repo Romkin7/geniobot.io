@@ -1,17 +1,17 @@
 import React, { FC } from 'react';
-import ChartLine from '../Shared/ChartLine';
+import ChartLine from '../Components/Shared/ChartLine';
 
 const Overview: FC = () => {
 	return (
 		<>
-			<section id="interactions">
+			<section>
 				<div className="overview-box">
 					<h4>Monthly interactions</h4>
 					<ChartLine />
 				</div>
 				<p>Interaction is one click/open</p>
 			</section>
-			<section id="numbers">
+			<section className="numbers">
 				<div className="overview-box">
 					<h4>Artificial Intellect</h4>
 					<span>0</span>

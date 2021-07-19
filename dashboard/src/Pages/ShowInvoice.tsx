@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useCallback } from 'react';
 import { CheckCircleOutline, PauseCircleOutline } from '@material-ui/icons';
 import axios from 'axios';
 import { useLocation, useParams } from 'react-router-dom';
-import { Invoice } from '../../../@types';
+import { Invoice } from '../@types';
 
 const ShowInvoice: FC = () => {
 	const [loading, setLoading] = useState<boolean>(true);
@@ -34,22 +34,22 @@ const ShowInvoice: FC = () => {
 			{loading ? (
 				<h1>Loading...</h1>
 			) : (
-				<section id="singleinv">
+				<section className="singleinv">
 					<h4>Invoice: {number}</h4>
-					<div className="invdata">
-						<div className="inv-names">
+					<div className="singleinv__invdata">
+						<div className="singleinv__names">
 							<p>Status:</p>
 							<p>Invoice date:</p>
 							<p>Payment date:</p>
 							<p>Due date:</p>
 							<p>Sum:</p>
 						</div>
-						<div className="data">
+						<div className="singleinv__data">
 							<p>
 								{paid ? (
-									<CheckCircleOutline className="center-line green" />
+									<CheckCircleOutline className="singleinv__icon singleinv__icon--green" />
 								) : (
-									<PauseCircleOutline className="center-line red" />
+									<PauseCircleOutline className="singleinv__icon singleinv__icon--red" />
 								)}
 								{/* <CheckCircleOutline className={`center-line ${status ? 'red' : 'green'}`} /> */}
 								{paid}
@@ -59,7 +59,7 @@ const ShowInvoice: FC = () => {
 							<p>{dueDate}</p>
 							<p>{sum}€</p>
 						</div>
-						<button id="open">
+						<button className="button__openpdf">
 							<img
 								src="https://res.cloudinary.com/geniobot-io/image/upload/v1626003726/open_button_glnjsk.png"
 								alt="pdf icon with gradient"
@@ -67,7 +67,7 @@ const ShowInvoice: FC = () => {
 						</button>
 					</div>
 
-					<button className={`pay ${paid ? 'not-paid' : ''}`}>Pay online</button>
+					<button className={`button__payonline ${paid ? 'button__payonline--paid' : ''}`}>Pay online</button>
 				</section>
 			)}
 		</>

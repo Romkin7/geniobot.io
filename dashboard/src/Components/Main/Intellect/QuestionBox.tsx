@@ -41,7 +41,7 @@ function getStyles(name: any, categoryName: any, theme: any) {
 	};
 }
 
-const Question: FC<QuestioProps> = ({ question }) => {
+const QuestionBox: FC<QuestioProps> = ({ question }) => {
 	const classes = useStyles();
 	/*delete button*/
 	const [opendelete, setOpenDelete] = React.useState(false);
@@ -177,4 +177,4 @@ const Question: FC<QuestioProps> = ({ question }) => {
 	);
 };
 
-export default Question;
+export default QuestionBox;

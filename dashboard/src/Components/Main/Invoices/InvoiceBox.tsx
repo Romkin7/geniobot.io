@@ -13,14 +13,14 @@ const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
 	let { path, url } = useRouteMatch();
 	return (
 		<>
-			<div className="invoice-box">
+			<div className="invoices__box">
 				<div>
 					<h4>Invoice: {number} </h4>
 					<p>Payment date: {paymentDate}</p>
 					<p>Due date: {dueDate}</p>
 				</div>
 
-				<p className="amount">{sum}€</p>
+				<p className="invoices__amount">{sum}€</p>
 
 				<Link to={`/invoices/${id}`}>
 					{/* <Link

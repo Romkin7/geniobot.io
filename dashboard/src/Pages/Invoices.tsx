@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
-import InvoiceBox from './InvoiceBox';
+import InvoiceBox from '../Components/Main/Invoices/InvoiceBox';
 
 import OpenInv from './ShowInvoice';
 import axios from 'axios';
-import { Invoice } from '../../../@types';
+import { Invoice } from '../@types';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
 const Invoices: FC = () => {
@@ -32,7 +32,7 @@ const Invoices: FC = () => {
 	}, [setInvoices, invoices, updateOpenInvoices]);
 
 	return (
-		<section id="invoices">
+		<section className="invoices">
 			<p>Here you can find all invoices with geniobot.io</p>
 			{openInvoices ? (
 				<Link
@@ -41,13 +41,13 @@ const Invoices: FC = () => {
 						state: { id },
 					}}
 				>
-					<p className="openinv">Open invoices ({openInvoices.length})</p>
+					<p className="invoices__openinv">Open invoices ({openInvoices.length})</p>
 				</Link>
 			) : (
-				<p className="openinv">Open invoices (0)</p>
+				<p className="invoices__openinv">Open invoices (0)</p>
 			)}
 
-			<p className="paid">Paid invoices</p>
+			<p className="invoices__paid">Paid invoices</p>
 			{invoices?.length &&
 				invoices.map((invoice: Invoice) => {
 					return <InvoiceBox key={invoice.id} invoice={invoice} />;
