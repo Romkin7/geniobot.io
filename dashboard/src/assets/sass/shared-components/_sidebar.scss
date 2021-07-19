@@ -1,9 +1,8 @@
-nav {
+/* nav {
 	aside & {
-		/* padding-top: 1vh; */
+		
 
 		ul {
-			list-style: none;
 			li {
 				margin: 2vh 0;
 				&:hover {
@@ -41,7 +40,7 @@ nav {
 			-ms-border-radius: $borderRadius;
 			-o-border-radius: $borderRadius;
 
-			.icon {
+			.nav__icon {
 				color: $golden;
 			}
 		}
@@ -58,7 +57,7 @@ nav {
 			}
 		}
 	}
-}
+} */
 
 button {
 	aside & {
@@ -81,5 +80,59 @@ button {
 img {
 	.logo & {
 		max-width: 30vw;
+	}
+}
+
+.active {
+	aside & {
+		background-color: $lightgrey;
+		border-radius: $borderRadius;
+		-webkit-border-radius: $borderRadius;
+		-moz-border-radius: $borderRadius;
+		-ms-border-radius: $borderRadius;
+		-o-border-radius: $borderRadius;
+
+		.nav__icon {
+			color: $golden;
+		}
+	}
+}
+
+aside {
+	.nav {
+		&__item {
+			margin: 2vh 0;
+			&:hover {
+				.nav__icon {
+					color: $golden;
+				}
+			}
+		}
+		&__icon {
+			font-size: 30px;
+			margin-right: 10px;
+			position: relative;
+			top: 10px;
+			&:hover {
+				color: $golden;
+			}
+		}
+		&__link {
+			text-decoration: none;
+			color: $snowwhite;
+			padding: 1vh 1vw 2vh 1vw;
+			display: inline-block;
+			width: 20vw;
+			@include transition(all 0.08s ease-in 0.08s);
+			&:hover {
+				background-color: $lightgrey;
+				padding: 1vh 1vw 2vh 1vw;
+				border-radius: $borderRadius;
+				-webkit-border-radius: $borderRadius;
+				-moz-border-radius: $borderRadius;
+				-ms-border-radius: $borderRadius;
+				-o-border-radius: $borderRadius;
+			}
+		}
 	}
 }

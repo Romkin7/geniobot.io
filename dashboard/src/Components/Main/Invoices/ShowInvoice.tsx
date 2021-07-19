@@ -1,14 +1,16 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
 import { CheckCircleOutline, PauseCircleOutline } from '@material-ui/icons';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { Invoice } from '../../../@types';
 
 const ShowInvoice: FC = () => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [invoices, setInvoices] = useState<Invoice[] | null>(null);
-	const [invoice, setInvoice] = useState<Invoice>({number: 0, id: 0, dueDate: "", paymentDate: "", sum: 0, paid: false, createdAt: ""});
+	const [invoice, setInvoice] = useState<Invoice>({ number: 0, id: 0, dueDate: '', paymentDate: '', sum: 0, paid: false, createdAt: '' });
 	const { id }: { id: string } = useParams();
+	/* const { location }: any = useLocation();
+	console.log(location); */
 
 	const findInvoice = useCallback(() => {
 		const foundInvoice = invoices?.find((invoiceInFind: Invoice) => invoiceInFind.id === Number(id)) as Invoice;
@@ -17,8 +19,8 @@ const ShowInvoice: FC = () => {
 	}, [invoices, id, setLoading]);
 
 	useEffect(() => {
-		if(!invoices) {
-			axios.get('http://localhost:3001/invoices.json').then((res: any) => {
+		if (!invoices) {
+			axios.get('http://localhost:3000/invoices.json').then((res: any) => {
 				setInvoices(res.data.invoices);
 			});
 		} else {

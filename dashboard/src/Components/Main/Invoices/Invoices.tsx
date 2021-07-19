@@ -18,12 +18,13 @@ const Invoices: FC = () => {
 			return !invoice.paid;
 		});
 		setOpenInvoices(filteredInvoices as Invoice[]);
+		console.log(openInvoices);
 	}, [invoices, setOpenInvoices]);
 
 	useEffect(() => {
 		if (!invoices) {
 			axios.get('invoices.json').then((res: any) => {
-				console.log(res.data)
+				console.log(res.data);
 				setInvoices(res.data.invoices);
 				updateOpenInvoices();
 			});

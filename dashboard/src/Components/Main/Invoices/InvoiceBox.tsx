@@ -7,7 +7,7 @@ interface InvoiceBoxProps {
 }
 
 const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
-	const {number, sum, dueDate, paymentDate, id} = invoice;
+	const { number, sum, dueDate, paymentDate, id } = invoice;
 	let location = useLocation();
 	console.log(location);
 	let { path, url } = useRouteMatch();
@@ -23,6 +23,12 @@ const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
 				<p className="amount">{sum}€</p>
 
 				<Link to={`/invoices/${id}`}>
+					{/* <Link
+					to={{
+						pathname: `/invoices/${number}`,
+						state: { id },
+					}}
+				> */}
 					<img
 						src="https://res.cloudinary.com/geniobot-io/image/upload/v1625913414/arrow_forward_ios_anbmum.png"
 						alt="open arrow"
