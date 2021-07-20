@@ -20,29 +20,31 @@
 		justify-content: space-between;
 		padding: 3vw;
 
-		h4 {
+		&__heading {
 			font-weight: 400;
 			margin-bottom: 2vh;
 			@include gradheading($pinkLinear);
 			font-size: 1.4rem;
 		}
-		img {
+		&__link {
 			align-self: center;
+		}
+		&__icon {
 			width: 4vw;
+		}
+		&__p {
+			margin-bottom: 2vh;
 		}
 		&__amount {
 			@include gradheading($pinkLinear);
 			font-size: 1.5rem;
 			align-self: center;
 		}
-		p {
-			margin-bottom: 2vh;
-		}
 	}
 }
 
 .singleinv {
-	h4 {
+	&__heading {
 		font-weight: 400;
 		text-align: center;
 		margin-bottom: 4vh;
@@ -54,14 +56,14 @@
 
 		&__names {
 			margin-right: 6vw;
-			p {
+			&__p {
 				margin-bottom: 2vh;
 			}
 		}
 
 		&__data {
 			margin-right: 10vw;
-			p {
+			&__p {
 				margin-bottom: 2vh;
 				&:nth-child(5) {
 					@include gradheading($pinkLinear);

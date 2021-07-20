@@ -33,7 +33,7 @@ const Invoices: FC = () => {
 
 	return (
 		<section className="invoices">
-			<p>Here you can find all invoices with geniobot.io</p>
+			<h6>Here you can find all invoices with geniobot.io</h6>
 			{openInvoices ? (
 				<Link
 					to={{

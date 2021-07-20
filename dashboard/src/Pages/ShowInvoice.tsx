@@ -35,17 +35,17 @@ const ShowInvoice: FC = () => {
 				<h1>Loading...</h1>
 			) : (
 				<section className="singleinv">
-					<h4>Invoice: {number}</h4>
+					<h4 className="singleinv__heading">Invoice: {number}</h4>
 					<div className="singleinv__invdata">
 						<div className="singleinv__invdata__names">
-							<p>Status:</p>
-							<p>Invoice date:</p>
-							<p>Payment date:</p>
-							<p>Due date:</p>
-							<p>Sum:</p>
+							<p className="singleinv__invdata__names__p">Status:</p>
+							<p className="singleinv__invdata__names__p">Invoice date:</p>
+							<p className="singleinv__invdata__names__p">Payment date:</p>
+							<p className="singleinv__invdata__names__p">Due date:</p>
+							<p className="singleinv__invdata__names__p">Sum:</p>
 						</div>
 						<div className="singleinv__invdata__data">
-							<p>
+							<p className="singleinv__invdata__data__p">
 								{paid ? (
 									<CheckCircleOutline className="singleinv__invdata__data__icon singleinv__invdata__data__icon--green" />
 								) : (
@@ -54,10 +54,10 @@ const ShowInvoice: FC = () => {
 								{/* <CheckCircleOutline className={`center-line ${status ? 'red' : 'green'}`} /> */}
 								{paid}
 							</p>
-							<p>{createdAt}</p>
-							<p>{paymentDate}</p>
-							<p>{dueDate}</p>
-							<p>{sum}€</p>
+							<p className="singleinv__invdata__data__p">{createdAt}</p>
+							<p className="singleinv__invdata__data__p">{paymentDate}</p>
+							<p className="singleinv__invdata__data__p">{dueDate}</p>
+							<p className="singleinv__invdata__data__p">{sum}€</p>
 						</div>
 						<button className="button__openpdf">
 							<img
