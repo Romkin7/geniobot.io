@@ -15,7 +15,7 @@ const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
 		<>
 			<div className="invoices__box">
 				<div>
-					<h4 className="invoices__box__heading">Invoice: {number} </h4>
+					<h2 className="invoices__box__heading">Invoice: {number} </h2>
 					<p className="invoices__box__p">Payment date: {paymentDate}</p>
 					<p className="invoices__box__p">Due date: {dueDate}</p>
 				</div>
@@ -32,7 +32,7 @@ const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
 					<img
 						className="invoices__box__icon"
 						src="https://res.cloudinary.com/geniobot-io/image/upload/v1625913414/arrow_forward_ios_anbmum.png"
-						alt="open arrow"
+						alt="open arrow icon"
 					/>
 				</Link>
 			</div>

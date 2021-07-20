@@ -35,7 +35,7 @@ const ShowInvoice: FC = () => {
 				<h1>Loading...</h1>
 			) : (
 				<section className="singleinv">
-					<h4 className="singleinv__heading">Invoice: {number}</h4>
+					<h1 className="singleinv__heading">Invoice: {number}</h1>
 					<div className="singleinv__invdata">
 						<div className="singleinv__invdata__names">
 							<p className="singleinv__invdata__names__p">Status:</p>
