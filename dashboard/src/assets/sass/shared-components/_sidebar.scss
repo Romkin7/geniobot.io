@@ -1,71 +1,62 @@
-button {
-	aside & {
-		@extend %button;
-		margin-top: 2vh;
-		color: $golden;
-		padding: 1.5rem 1rem;
-		text-transform: uppercase;
-		font-family: $ibmplexmono;
-		font-size: 1.4rem;
-	}
+.button__sidebar {
+	@extend %button;
+	margin-top: 2vh;
+	color: $golden;
+	padding: 1.5rem 1rem;
+	text-transform: uppercase;
+	font-family: $ibmplexmono;
+	font-size: 1.4rem;
 }
 
-img {
-	.logo & {
-		max-width: 30vw;
-	}
+.logo__sidebar {
+	max-width: 30vw;
 }
 
-.active {
-	aside & {
-		background-color: $lightgrey;
-		border-radius: $borderRadius;
-		-webkit-border-radius: $borderRadius;
-		-moz-border-radius: $borderRadius;
-		-ms-border-radius: $borderRadius;
-		-o-border-radius: $borderRadius;
-
-		.nav__list__icon {
-			color: $golden;
-		}
-	}
-}
-
-aside {
-	.nav {
-		&__list {
-			&__item {
-				margin: 2vh 0;
-				&:hover {
-					.nav__list__icon {
-						color: $golden;
-					}
-				}
-			}
-			&__icon {
-				font-size: 30px;
-				margin-right: 10px;
-				position: relative;
-				top: 10px;
-				&:hover {
+.nav {
+	&__list {
+		&__item {
+			margin: 2vh 0;
+			&:hover {
+				.nav__list__icon {
 					color: $golden;
 				}
 			}
-			&__link {
-				text-decoration: none;
-				color: $snowwhite;
+		}
+		&__icon {
+			font-size: 30px;
+			margin-right: 10px;
+			position: relative;
+			top: 10px;
+			&:hover {
+				color: $golden;
+			}
+		}
+		&__link {
+			text-decoration: none;
+			color: $snowwhite;
+			padding: 1vh 1vw 2vh 1vw;
+			display: inline-block;
+			width: 20vw;
+			@include transition(all 0.08s ease-in 0.08s);
+			&:hover {
+				background-color: $lightgrey;
 				padding: 1vh 1vw 2vh 1vw;
-				display: inline-block;
-				width: 20vw;
-				@include transition(all 0.08s ease-in 0.08s);
-				&:hover {
-					background-color: $lightgrey;
-					padding: 1vh 1vw 2vh 1vw;
-					border-radius: $borderRadius;
-					-webkit-border-radius: $borderRadius;
-					-moz-border-radius: $borderRadius;
-					-ms-border-radius: $borderRadius;
-					-o-border-radius: $borderRadius;
+				border-radius: $borderRadius;
+				-webkit-border-radius: $borderRadius;
+				-moz-border-radius: $borderRadius;
+				-ms-border-radius: $borderRadius;
+				-o-border-radius: $borderRadius;
+			}
+			&--active {
+				background-color: $lightgrey;
+				border-radius: $borderRadius;
+				-webkit-border-radius: $borderRadius;
+				-moz-border-radius: $borderRadius;
+				-ms-border-radius: $borderRadius;
+				-o-border-radius: $borderRadius;
+
+				.nav__list__icon {
+					color: $golden;
 				}
 			}
 		}

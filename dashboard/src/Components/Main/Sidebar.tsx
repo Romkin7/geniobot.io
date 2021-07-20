@@ -16,76 +16,81 @@ import {
 const Sidebar: FC = () => {
 	return (
 		<aside>
-			<section className="logo">
-				<img src="https://res.cloudinary.com/geniobot-io/image/upload/v1624693972/Logo_plmy4d.svg" alt="geniobot logo" />
-			</section>
+			<picture>
+				<source srcSet="https://res.cloudinary.com/geniobot-io/image/upload/v1624693972/Logo_plmy4d.svg" />
+				<img
+					className="logo__sidebar"
+					src="https://res.cloudinary.com/geniobot-io/image/upload/v1624693972/Logo_plmy4d.svg"
+					alt="geniobot logo"
+				/>
+			</picture>
 			<nav className="nav">
 				<ul className="nav__list">
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" exact to="/">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" exact to="/">
 							<Timeline className="nav__list__icon" />
 							Overview
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/invoices">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/invoices">
 							<EuroSymbol className="nav__list__icon" />
 							Invoices
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/messages">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/messages">
 							<MailOutline className="nav__list__icon" />
 							Messages
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/automation">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/automation">
 							<Dialpad className="nav__list__icon" />
 							Automation
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/intellect">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/intellect">
 							<CastForEducation className="nav__list__icon" />
 							Art. Intellect
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/api-list">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/api-list">
 							<SettingsInputComposite className="nav__list__icon" />
 							API-list
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/settings">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/settings">
 							<Settings className="nav__list__icon" />
 							Settings
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/help">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/help">
 							<HelpOutline className="nav__list__icon" />
 							Help
 						</NavLink>
 					</li>
 
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" to="/administrator">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" to="/administrator">
 							<Accessibility className="nav__list__icon" />
 							Administrator
 						</NavLink>
 					</li>
 				</ul>
 			</nav>
-			<button>Upgrade to pro</button>
+			<button className="button__sidebar">Upgrade to pro</button>
 		</aside>
 	);
 };
