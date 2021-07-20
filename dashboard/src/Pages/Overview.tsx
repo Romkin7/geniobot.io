@@ -4,39 +4,37 @@ import ChartLine from '../Components/Shared/ChartLine';
 const Overview: FC = () => {
 	return (
 		<>
-			<section>
-				<div className="overview-box">
-					<h4>Monthly interactions</h4>
-					<ChartLine />
-				</div>
-				<p>Interaction is one click/open</p>
+			<section className="overview-box">
+				<h2 className="overview-box__heading">Monthly interactions</h2>
+				<ChartLine />
 			</section>
-			<section className="numbers">
-				<div className="overview-box">
-					<h4>Artificial Intellect</h4>
-					<span>0</span>
+			<p>Interaction is one click/open</p>
+			<div className="numbers">
+				<div className="numbers__overview-box">
+					<h3 className="numbers__overview-box__heading">Artificial Intellect</h3>
+					<span className="numbers__overview-box__span">0</span>
 				</div>
-				<div className="overview-box">
-					<h4>API integrations list</h4>
-					<span>0</span>
+				<div className="numbers__overview-box">
+					<h3 className="numbers__overview-box__heading">API integrations list</h3>
+					<span className="numbers__overview-box__span">0</span>
 				</div>
-				<div className="overview-box">
-					<h4>Unpaid invoices</h4>
-					<span>0</span>
+				<div className="numbers__overview-box">
+					<h3 className="numbers__overview-box__heading">Unpaid invoices</h3>
+					<span className="numbers__overview-box__span">0</span>
 				</div>
-				<div className="overview-box">
-					<h4>Unread messages</h4>
-					<span>0</span>
+				<div className="numbers__overview-box">
+					<h3 className="numbers__overview-box__heading">Unread messages</h3>
+					<span className="numbers__overview-box__span">0</span>
 				</div>
-				<div className="overview-box">
-					<h4>Described topics</h4>
-					<span>0</span>
+				<div className="numbers__overview-box">
+					<h3 className="numbers__overview-box__heading">Described topics</h3>
+					<span className="numbers__overview-box__span">0</span>
 				</div>
-				<div className="overview-box">
-					<h4>Given Categories</h4>
-					<span>0</span>
+				<div className="numbers__overview-box">
+					<h3 className="numbers__overview-box__heading">Given Categories</h3>
+					<span className="numbers__overview-box__span">0</span>
 				</div>
-			</section>
+			</div>
 		</>
 	);
 };
