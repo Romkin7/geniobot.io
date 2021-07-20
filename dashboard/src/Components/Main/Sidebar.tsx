@@ -21,65 +21,65 @@ const Sidebar: FC = () => {
 			</section>
 			<nav className="nav">
 				<ul className="nav__list">
-					<li className="nav__item">
-						<NavLink className="nav__link" exact to="/">
-							<Timeline className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" exact to="/">
+							<Timeline className="nav__list__icon" />
 							Overview
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/invoices">
-							<EuroSymbol className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/invoices">
+							<EuroSymbol className="nav__list__icon" />
 							Invoices
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/messages">
-							<MailOutline className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/messages">
+							<MailOutline className="nav__list__icon" />
 							Messages
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/automation">
-							<Dialpad className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/automation">
+							<Dialpad className="nav__list__icon" />
 							Automation
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/intellect">
-							<CastForEducation className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/intellect">
+							<CastForEducation className="nav__list__icon" />
 							Art. Intellect
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/api-list">
-							<SettingsInputComposite className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/api-list">
+							<SettingsInputComposite className="nav__list__icon" />
 							API-list
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/settings">
-							<Settings className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/settings">
+							<Settings className="nav__list__icon" />
 							Settings
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/help">
-							<HelpOutline className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/help">
+							<HelpOutline className="nav__list__icon" />
 							Help
 						</NavLink>
 					</li>
 
-					<li className="nav__item">
-						<NavLink className="nav__link" to="/administrator">
-							<Accessibility className="nav__icon" />
+					<li className="nav__list__item">
+						<NavLink className="nav__list__link" to="/administrator">
+							<Accessibility className="nav__list__icon" />
 							Administrator
 						</NavLink>
 					</li>
