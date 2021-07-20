@@ -1,82 +1,89 @@
-#automation {
+.automation {
 	display: flex;
-	.category-list {
+	&__category-list {
 		margin-right: 4vw;
-		h4 {
+		&__button {
 			font-family: $ibmplexmono;
 			color: $golden;
 			font-size: 1.875rem;
 			font-weight: 400;
 			margin-bottom: 4vh;
-		}
-		.active,
-		a:hover {
-			.button-section {
-				background-color: $aquagreen;
-				width: 4rem;
-				height: 100%;
-				border-radius: 16px;
-				position: absolute;
-				right: 0;
-				bottom: 0;
-				-webkit-border-radius: 16px;
-				-moz-border-radius: 16px;
-				-ms-border-radius: 16px;
-				-o-border-radius: 16px;
-			}
 
-			.single-category {
+			&__icon {
+				position: relative;
+				top: 1vh;
+				cursor: pointer;
+			}
+		}
+
+		&__item {
+			&__name {
+				$self: &;
+				border: 2px solid $grey;
+				font-size: 1.563rem;
+				border-radius: $borderRadius;
+				-webkit-border-radius: $borderRadius;
+				-moz-border-radius: $borderRadius;
+				-ms-border-radius: $borderRadius;
+				-o-border-radius: $borderRadius;
+				padding: 6vh 2vw;
+				margin-bottom: 2vh;
+				position: relative;
+
+				&__button-section {
+					&__edit {
+						@extend %buttons-right;
+						right: 1.5vw;
+						bottom: 9vh;
+					}
+					&__delete {
+						@extend %buttons-right;
+						right: 1.5vw;
+						bottom: 1vh;
+					}
+				}
+			}
+		}
+
+		&__item--active &__item {
+			&:hover {
 				border: 2px solid $aquagreen;
-			}
-		}
-		.add-icon {
-			position: relative;
-			top: 1vh;
-			cursor: pointer;
-		}
-		.single-category {
-			border: 2px solid $grey;
-			font-size: 1.563rem;
-			border-radius: $borderRadius;
-			-webkit-border-radius: $borderRadius;
-			-moz-border-radius: $borderRadius;
-			-ms-border-radius: $borderRadius;
-			-o-border-radius: $borderRadius;
-			padding: 6vh 2vw;
-			margin-bottom: 2vh;
-			position: relative;
 
-			%buttons {
-				position: absolute;
-				background-color: transparent;
-				border-width: 0;
-				color: $snowwhite;
-			}
-
-			.edit-button {
-				@extend %buttons;
-				right: 1.5vw;
-				bottom: 9vh;
-			}
-			.delete-button {
-				@extend %buttons;
-				right: 1.5vw;
-				bottom: 1vh;
+				.automation__category-list__item__name__button-section {
+					background-color: $aquagreen;
+					width: 4rem;
+					height: 100%;
+					border-radius: 16px;
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					-webkit-border-radius: 16px;
+					-moz-border-radius: 16px;
+					-ms-border-radius: 16px;
+					-o-border-radius: 16px;
+				}
 			}
 		}
 	}
 
-	.topics-list {
+	&__topics-list {
 		margin-top: 10vh;
 
-		li {
+		&__item {
 			margin-bottom: 2vh;
+
+			&__icon {
+				color: $lavender;
+				position: relative;
+				top: 0.8vh;
+			}
 		}
 	}
+}
 
-	.topics-icon {
-		color: $lavender;
-		position: relative;
-		top: 0.8vh;
-	}
+%buttons-right {
+	position: absolute;
+	background-color: transparent;
+	border-width: 0;
+	color: $snowwhite;
 }
