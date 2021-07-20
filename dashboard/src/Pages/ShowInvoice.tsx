@@ -37,19 +37,19 @@ const ShowInvoice: FC = () => {
 				<section className="singleinv">
 					<h4>Invoice: {number}</h4>
 					<div className="singleinv__invdata">
-						<div className="singleinv__names">
+						<div className="singleinv__invdata__names">
 							<p>Status:</p>
 							<p>Invoice date:</p>
 							<p>Payment date:</p>
 							<p>Due date:</p>
 							<p>Sum:</p>
 						</div>
-						<div className="singleinv__data">
+						<div className="singleinv__invdata__data">
 							<p>
 								{paid ? (
-									<CheckCircleOutline className="singleinv__icon singleinv__icon--green" />
+									<CheckCircleOutline className="singleinv__invdata__data__icon singleinv__invdata__data__icon--green" />
 								) : (
-									<PauseCircleOutline className="singleinv__icon singleinv__icon--red" />
+									<PauseCircleOutline className="singleinv__invdata__data__icon singleinv__invdata__data__icon--red" />
 								)}
 								{/* <CheckCircleOutline className={`center-line ${status ? 'red' : 'green'}`} /> */}
 								{paid}

@@ -20,7 +20,7 @@ const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
 					<p>Due date: {dueDate}</p>
 				</div>
 
-				<p className="invoices__amount">{sum}€</p>
+				<p className="invoices__box__amount">{sum}€</p>
 
 				<Link to={`/invoices/${id}`}>
 					{/* <Link

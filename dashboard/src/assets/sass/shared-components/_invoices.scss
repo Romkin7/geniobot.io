@@ -30,7 +30,7 @@
 			align-self: center;
 			width: 4vw;
 		}
-		.invoices__amount {
+		&__amount {
 			@include gradheading($pinkLinear);
 			font-size: 1.5rem;
 			align-self: center;
@@ -51,30 +51,33 @@
 	}
 	&__invdata {
 		display: flex;
-	}
-	&__names {
-		margin-right: 6vw;
-		p {
-			margin-bottom: 2vh;
-		}
-	}
-	&__data {
-		margin-right: 10vw;
-		p {
-			margin-bottom: 2vh;
-			&:nth-child(5) {
-				@include gradheading($pinkLinear);
+
+		&__names {
+			margin-right: 6vw;
+			p {
+				margin-bottom: 2vh;
 			}
 		}
-	}
-	&__icon {
-		margin-top: 0.8vh;
-		margin-right: 0.5vw;
-		&--green {
-			color: $aquagreen;
-		}
-		&--red {
-			color: fuchsia;
+
+		&__data {
+			margin-right: 10vw;
+			p {
+				margin-bottom: 2vh;
+				&:nth-child(5) {
+					@include gradheading($pinkLinear);
+				}
+			}
+
+			&__icon {
+				margin-top: 0.8vh;
+				margin-right: 0.5vw;
+				&--green {
+					color: $aquagreen;
+				}
+				&--red {
+					color: fuchsia;
+				}
+			}
 		}
 	}
 }
