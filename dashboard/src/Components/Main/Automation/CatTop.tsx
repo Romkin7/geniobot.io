@@ -14,19 +14,24 @@ const CatTop: FC<CatTopProps> = ({ catname, topicname, topicid }) => {
 
 	return (
 		<>
-			<section className="category-list">
-				<h4>
-					Categories <AddCircleOutline style={{ fontSize: 30 }} className="add-icon" role="button" />
-				</h4>
+			<section className="automation__category-list">
+				<h2 className="automation__category-list__button">
+					Categories
+					<AddCircleOutline style={{ fontSize: 30 }} className="automation__category-list__button__icon" role="button" />
+				</h2>
 
-				<NavLink to={`${url}/${catname.split(' ').join('-')}`}>
-					<div className="single-category">
+				<NavLink
+					activeClassName="automation__category-list__item--active"
+					className="automation__category-list__item"
+					to={`${url}/${catname.split(' ').join('-')}`}
+				>
+					<div className="automation__category-list__item__name">
 						{catname}
-						<div className="button-section">
-							<button className="edit-button">
+						<div className="automation__category-list__item__name__button-section">
+							<button className="automation__category-list__item__name__button-section__edit">
 								<Edit style={{ fontSize: 30 }} />
 							</button>
-							<button className="delete-button">
+							<button className="automation__category-list__item__name__button-section__delete">
 								<DeleteOutline style={{ fontSize: 30 }} />
 							</button>
 						</div>
@@ -34,32 +39,31 @@ const CatTop: FC<CatTopProps> = ({ catname, topicname, topicid }) => {
 				</NavLink>
 			</section>
 
-			<section className="topics-list">
+			<div className="automation__topics-list">
 				<Switch>
 					<Route exact path={path}>
 						<ul>
-							<li>
+							<li className="automation__topics-list__item">
 								<Link
 									to={{
 										pathname: `${url}/${topicname.split(' ').join('-')}`,
 										state: { topicid },
 									}}
 								>
-									<FiberManualRecord className="topics-icon" /> {topicname}
+									<FiberManualRecord className="automation__topics-list__item__icon" /> {topicname}
 								</Link>
 							</li>
-							<li>something else</li>
 						</ul>
 					</Route>
 
 					<Route path={`${path}/${catname.split(' ').join('-')}`}>
 						<ul>
-							<li>Topics for this {catname} category</li>
+							<li className="automation__topics-list__item">Topics for this {catname} category</li>
 						</ul>
 						hello hello
 					</Route>
 				</Switch>
-			</section>
+			</div>
 		</>
 	);
 };

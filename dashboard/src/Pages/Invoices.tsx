@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
-import InvoiceBox from './InvoiceBox';
+import InvoiceBox from '../Components/Main/Invoices/InvoiceBox';
 
 import OpenInv from './ShowInvoice';
 import axios from 'axios';
-import { Invoice } from '../../../@types';
+import { Invoice } from '../@types';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
 const Invoices: FC = () => {
@@ -18,12 +18,13 @@ const Invoices: FC = () => {
 			return !invoice.paid;
 		});
 		setOpenInvoices(filteredInvoices as Invoice[]);
+		console.log(openInvoices);
 	}, [invoices, setOpenInvoices]);
 
 	useEffect(() => {
 		if (!invoices) {
 			axios.get('invoices.json').then((res: any) => {
-				console.log(res.data)
+				console.log(res.data);
 				setInvoices(res.data.invoices);
 				updateOpenInvoices();
 			});
@@ -31,8 +32,8 @@ const Invoices: FC = () => {
 	}, [setInvoices, invoices, updateOpenInvoices]);
 
 	return (
-		<section id="invoices">
-			<p>Here you can find all invoices with geniobot.io</p>
+		<section className="invoices">
+			<h1>Here you can find all invoices with geniobot.io</h1>
 			{openInvoices ? (
 				<Link
 					to={{
@@ -40,13 +41,13 @@ const Invoices: FC = () => {
 						state: { id },
 					}}
 				>
-					<p className="openinv">Open invoices ({openInvoices.length})</p>
+					<p className="invoices__openinv">Open invoices ({openInvoices.length})</p>
 				</Link>
 			) : (
-				<p className="openinv">Open invoices (0)</p>
+				<p className="invoices__openinv">Open invoices (0)</p>
 			)}
 
-			<p className="paid">Paid invoices</p>
+			<p className="invoices__paid">Paid invoices</p>
 			{invoices?.length &&
 				invoices.map((invoice: Invoice) => {
 					return <InvoiceBox key={invoice.id} invoice={invoice} />;

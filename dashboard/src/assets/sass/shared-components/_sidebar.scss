@@ -1,85 +1,64 @@
-nav {
-	aside & {
-		/* padding-top: 1vh; */
+.button__sidebar {
+	@extend %button;
+	margin-top: 2vh;
+	color: $golden;
+	padding: 1.5rem 1rem;
+	text-transform: uppercase;
+	font-family: $ibmplexmono;
+	font-size: 1.4rem;
+}
 
-		ul {
-			list-style: none;
-			li {
-				margin: 2vh 0;
-				&:hover {
-					.icon {
-						color: $golden;
-					}
-				}
-			}
-			a {
-				text-decoration: none;
-				color: $snowwhite;
-				padding: 1vh 1vw 2vh 1vw;
-				display: inline-block;
-				width: 20vw;
-				@include transition(all 0.08s ease-in 0.08s);
-				&:hover {
-					background-color: $lightgrey;
-					padding: 1vh 1vw 2vh 1vw;
-					border-radius: $borderRadius;
-					-webkit-border-radius: $borderRadius;
-					-moz-border-radius: $borderRadius;
-					-ms-border-radius: $borderRadius;
-					-o-border-radius: $borderRadius;
+.logo__sidebar {
+	max-width: 30vw;
+}
+
+.nav {
+	&__list {
+		&__item {
+			margin: 2vh 0;
+			&:hover {
+				.nav__list__icon {
+					color: $golden;
 				}
 			}
 		}
-	}
-
-	.active {
-		aside & {
-			background-color: $lightgrey;
-			border-radius: $borderRadius;
-			-webkit-border-radius: $borderRadius;
-			-moz-border-radius: $borderRadius;
-			-ms-border-radius: $borderRadius;
-			-o-border-radius: $borderRadius;
-
-			.icon {
-				color: $golden;
-			}
-		}
-	}
-
-	.icon {
-		aside & {
+		&__icon {
 			font-size: 30px;
 			margin-right: 10px;
 			position: relative;
-			top: 10px;
+			top: 5px;
 			&:hover {
 				color: $golden;
 			}
 		}
-	}
-}
+		&__link {
+			text-decoration: none;
+			color: $snowwhite;
+			padding: 1vh 1vw 2vh 1vw;
+			display: inline-block;
+			width: 20vw;
+			@include transition(all 0.08s ease-in 0.08s);
+			&:hover {
+				background-color: $lightgrey;
+				padding: 1vh 1vw 2vh 1vw;
+				border-radius: $borderRadius;
+				-webkit-border-radius: $borderRadius;
+				-moz-border-radius: $borderRadius;
+				-ms-border-radius: $borderRadius;
+				-o-border-radius: $borderRadius;
+			}
+			&--active {
+				background-color: $lightgrey;
+				border-radius: $borderRadius;
+				-webkit-border-radius: $borderRadius;
+				-moz-border-radius: $borderRadius;
+				-ms-border-radius: $borderRadius;
+				-o-border-radius: $borderRadius;
 
-button {
-	aside & {
-		margin-top: 2vh;
-		background-color: $darkblack;
-		color: $golden;
-		padding: 1.5rem 1rem;
-		border: none;
-		text-transform: uppercase;
-		font-family: $ibmplexmono;
-		font-size: 1.4rem;
-		border-radius: $borderRadius;
-		-webkit-border-radius: $borderRadius;
-		-moz-border-radius: $borderRadius;
-		-ms-border-radius: $borderRadius;
-		-o-border-radius: $borderRadius;
-	}
-}
-
-img {
-	.logo & {
-		max-width: 30vw;
+				.nav__list__icon {
+					color: $golden;
+				}
+			}
+		}
 	}
 }

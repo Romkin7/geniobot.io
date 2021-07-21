@@ -71,6 +71,22 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 400;
+}
+h1 {
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
 
 %box {
 	margin: 0 2vw 4vh 0;
@@ -83,10 +99,3 @@ a {
 	background: $spacecadet;
 	box-shadow: $boxShadow;
 }
-
-/* .gradheading {
-	background: $pinkLinear;
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-} */

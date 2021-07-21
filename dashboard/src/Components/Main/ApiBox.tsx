@@ -66,28 +66,28 @@ const ApiBox: FC<ApiBoxProps> = ({ address, name, maincolor }) => {
 		setOpenEdit(false);
 	};
 	return (
-		<section className="single-api">
-			<div className="section-buttons">
-				<button className="button" onClick={handleOpenEdit}>
+		<div className="api-list__single-api">
+			<div className="api-list__single-api__section-buttons">
+				<button className="api-list__single-api__section-buttons__button" onClick={handleOpenEdit}>
 					<Edit style={{ fontSize: 30 }} />
 				</button>
-				<button className="button" onClick={handleOpenDelete}>
+				<button className="api-list__single-api__section-buttons__button" onClick={handleOpenDelete}>
 					<DeleteOutline style={{ fontSize: 30 }} />
 				</button>
 			</div>
 
-			<ul>
-				<span className={maincolor}>{address}</span>
-				<li>
-					<FiberManualRecord className={`center-line ${maincolor}  `} style={{ fontSize: 20 }} />
+			<ul className="api-list__single-api__list">
+				<span className={`api-list__single-api__address ${maincolor}`}>{address}</span>
+				<li className="api-list__single-api__list__item">
+					<FiberManualRecord className={`api-list__single-api__address__icon ${maincolor}  `} style={{ fontSize: 20 }} />
 					{name}
 				</li>
-				<li>
-					<FiberManualRecord className={`center-line ${maincolor}  `} style={{ fontSize: 20 }} />
+				<li className="api-list__single-api__list__item">
+					<FiberManualRecord className={`api-list__single-api__address__icon ${maincolor}  `} style={{ fontSize: 20 }} />
 					agreement number
 				</li>
-				<li>
-					<FiberManualRecord className={`center-line ${maincolor}  `} style={{ fontSize: 20 }} />
+				<li className="api-list__single-api__list__item">
+					<FiberManualRecord className={`api-list__single-api__address__icon ${maincolor}  `} style={{ fontSize: 20 }} />
 					unpaid invoices
 				</li>
 			</ul>
@@ -109,8 +109,8 @@ const ApiBox: FC<ApiBoxProps> = ({ address, name, maincolor }) => {
 						<h4 id="transition-modal-title">Do you really want to delete this API: </h4>
 						<p id="transition-modal-description">{address}?</p>
 						<div className="mod-buttons">
-							<button className="modal-button">Yes</button>
-							<button className="modal-button" onClick={handleCloseDelete}>
+							<button className="mod-buttons__button">Yes</button>
+							<button className="mod-buttons__button" onClick={handleCloseDelete}>
 								No
 							</button>
 						</div>
@@ -135,15 +135,15 @@ const ApiBox: FC<ApiBoxProps> = ({ address, name, maincolor }) => {
 						<h4 id="transition-modal-title2">Choose something </h4>
 
 						<div className="mod-buttons">
-							<button className="modal-button">Ok</button>
-							<button className="modal-button" onClick={handleCloseEdit}>
+							<button className="mod-buttons__button">Ok</button>
+							<button className="mod-buttons__button" onClick={handleCloseEdit}>
 								Cancel
 							</button>
 						</div>
 					</div>
 				</Fade>
 			</Modal>
-		</section>
+		</div>
 	);
 };
 

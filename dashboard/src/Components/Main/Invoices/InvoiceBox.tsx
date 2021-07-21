@@ -7,25 +7,32 @@ interface InvoiceBoxProps {
 }
 
 const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
-	const {number, sum, dueDate, paymentDate, id} = invoice;
+	const { number, sum, dueDate, paymentDate, id } = invoice;
 	let location = useLocation();
 	console.log(location);
 	let { path, url } = useRouteMatch();
 	return (
 		<>
-			<div className="invoice-box">
+			<div className="invoices__box">
 				<div>
-					<h4>Invoice: {number} </h4>
-					<p>Payment date: {paymentDate}</p>
-					<p>Due date: {dueDate}</p>
+					<h2 className="invoices__box__heading">Invoice: {number} </h2>
+					<p className="invoices__box__p">Payment date: {paymentDate}</p>
+					<p className="invoices__box__p">Due date: {dueDate}</p>
 				</div>
 
-				<p className="amount">{sum}€</p>
+				<p className="invoices__box__p invoices__box__amount">{sum}€</p>
 
-				<Link to={`/invoices/${id}`}>
+				<Link className="invoices__box__link" to={`/invoices/${id}`}>
+					{/* <Link
+					to={{
+						pathname: `/invoices/${number}`,
+						state: { id },
+					}}
+				> */}
 					<img
+						className="invoices__box__icon"
 						src="https://res.cloudinary.com/geniobot-io/image/upload/v1625913414/arrow_forward_ios_anbmum.png"
-						alt="open arrow"
+						alt="open arrow icon"
 					/>
 				</Link>
 			</div>

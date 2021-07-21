@@ -41,7 +41,7 @@ function getStyles(name: any, categoryName: any, theme: any) {
 	};
 }
 
-const Question: FC<QuestioProps> = ({ question }) => {
+const QuestionBox: FC<QuestioProps> = ({ question }) => {
 	const classes = useStyles();
 	/*delete button*/
 	const [opendelete, setOpenDelete] = React.useState(false);
@@ -85,13 +85,13 @@ const Question: FC<QuestioProps> = ({ question }) => {
 	};
 
 	return (
-		<div className="question">
+		<div className="intellect__question">
 			{question}
-			<div className="button-section">
-				<button className="edit-button" onClick={handleOpenEdit}>
+			<div className="intellect__question__button-section">
+				<button className="intellect__question__button-section__edit" onClick={handleOpenEdit}>
 					<Edit style={{ fontSize: 30 }} />
 				</button>
-				<button className="delete-button" onClick={handleOpenDelete}>
+				<button className="intellect__question__button-section__delete" onClick={handleOpenDelete}>
 					<DeleteOutline style={{ fontSize: 30 }} />
 				</button>
 			</div>
@@ -113,8 +113,8 @@ const Question: FC<QuestioProps> = ({ question }) => {
 						<h4 id="transition-modal-title">Do you really want to delete this question: </h4>
 						<p id="transition-modal-description">{question}?</p>
 						<div className="mod-buttons">
-							<button className="modal-button">Yes</button>
-							<button className="modal-button" onClick={handleCloseDelete}>
+							<button className="mod-buttons__button">Yes</button>
+							<button className="mod-buttons__button" onClick={handleCloseDelete}>
 								No
 							</button>
 						</div>
@@ -165,8 +165,8 @@ const Question: FC<QuestioProps> = ({ question }) => {
 							</Select>
 						</FormControl>
 						<div className="mod-buttons">
-							<button className="modal-button">Ok</button>
-							<button className="modal-button" onClick={handleCloseEdit}>
+							<button className="mod-buttons__button">Ok</button>
+							<button className="mod-buttons__button" onClick={handleCloseEdit}>
 								Cancel
 							</button>
 						</div>
@@ -177,4 +177,4 @@ const Question: FC<QuestioProps> = ({ question }) => {
 	);
 };
 
-export default Question;
+export default QuestionBox;
