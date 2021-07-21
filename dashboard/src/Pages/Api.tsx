@@ -3,24 +3,24 @@ import ApiBox from '../Components/Main/ApiBox';
 import { AddCircleOutline } from '@material-ui/icons';
 
 const Api: FC = () => {
-	const colors: string[] = ['aquagreen', 'lavender', 'dazzlerose'];
-	/* const forcolor = () => {
-		for (let i = 0; i < colors.length; i++) {
-			return colors[i];
-		}
-	}; */
+	const colors: string[] = [
+		' api-list__single-api__address--aquagreen',
+		' api-list__single-api__address--lavender',
+		' api-list__single-api__address--dazzlerose',
+	];
+
 	return (
-		<section id="api-list">
-			<p>API-integrations list is a list of API address from where you want to take info to your chatbot</p>
-			<h4>
+		<div className="api-list">
+			<p className="api-list__p">API-integrations list is a list of API address from where you want to take info to your chatbot</p>
+			<h2 className="api-list__addbutton">
 				ADD API
 				<button>
 					<AddCircleOutline style={{ fontSize: 30, position: 'relative', top: '1.3vh', marginLeft: '1vw' }} />
 				</button>
-			</h4>
+			</h2>
 			<ApiBox address="http://backend-app.io/data" name="balance" maincolor={colors[Math.floor(Math.random() * colors.length)]} />
 			<ApiBox address="http://backend-app.io/data" name="balance" maincolor={colors[Math.floor(Math.random() * colors.length)]} />
-		</section>
+		</div>
 	);
 };
 

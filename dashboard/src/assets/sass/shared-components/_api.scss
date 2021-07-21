@@ -1,56 +1,53 @@
-#api-list {
-	p {
+.api-list {
+	&__p {
 		margin-bottom: 4vh;
 	}
-	h4 {
+	&__addbutton {
 		color: $golden;
 		font-family: $ibmplexmono;
 		margin-bottom: 4vh;
 		font-weight: 400;
 	}
-	.single-api {
+	&__single-api {
 		@extend %box;
 
 		padding: 4vh;
 
 		position: relative;
 
-		.section-buttons {
+		&__section-buttons {
 			position: absolute;
 			right: 0;
 
-			.button {
+			&__button {
 				margin-right: 2vw;
 				color: $snowwhite;
 			}
 		}
 
-		span {
+		&__address {
 			margin-bottom: 4vh;
 			display: inline-block;
+
+			&--aquagreen {
+				color: $aquagreen;
+			}
+			&--lavender {
+				color: $lavender;
+			}
+			&--dazzlerose {
+				color: $dazzlerose;
+			}
+			&__icon {
+				margin-top: 0.4vh;
+			}
 		}
 
-		.aquagreen {
-			color: $aquagreen;
-		}
-		.lavender {
-			color: $lavender;
-		}
-
-		.dazzlerose {
-			color: $dazzlerose;
-		}
-
-		ul {
-			li {
+		&__list {
+			&__item {
 				margin-bottom: 4vh;
 				margin-left: 2vw;
 			}
 		}
 	}
-}
-
-.center-line {
-	position: relative;
-	top: 0.4vh;
 }

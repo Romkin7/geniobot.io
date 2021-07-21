@@ -1,7 +1,7 @@
 .mod-buttons {
 	display: flex;
 	justify-content: center;
-	.modal-button {
+	&__button {
 		background-color: $darkblack;
 		color: $golden;
 		padding: 2vw;
