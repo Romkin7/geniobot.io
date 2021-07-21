@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
-import InvoiceBox from '../Components/Main/Invoices/InvoiceBox';
+import InvoiceBox from '../../Components/Main/Invoices/InvoiceBox';
 
 import OpenInv from './ShowInvoice';
 import axios from 'axios';
-import { Invoice } from '../@types';
+import { Invoice } from '../../@types';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
 const Invoices: FC = () => {

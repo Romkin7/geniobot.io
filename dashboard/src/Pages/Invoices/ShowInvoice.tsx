@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useCallback } from 'react';
 import { CheckCircleOutline, PauseCircleOutline } from '@material-ui/icons';
 import axios from 'axios';
 import { useLocation, useParams } from 'react-router-dom';
-import { Invoice } from '../@types';
+import { Invoice } from '../../@types';
 
 const ShowInvoice: FC = () => {
 	const [loading, setLoading] = useState<boolean>(true);

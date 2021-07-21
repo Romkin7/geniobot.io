@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
-import { IAutomation } from '../@types';
-import Categories from '../Components/Main/Automation/Categories';
-import Topics from '../Components/Main/Automation/Topics';
+import { IAutomation } from '../../@types';
+import Categories from '../../Components/Main/Automation/Categories';
+import Topics from '../../Components/Main/Automation/Topics';
 import axios from 'axios';
 import { AddCircleOutline } from '@material-ui/icons';
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Edit, DeleteOutline } from '@material-ui/icons';
-import QuestionBox from '../Components/Main/Intellect/QuestionBox';
+import QuestionBox from '../../Components/Main/Intellect/QuestionBox';
 
 const Intellect: FC = () => {
 	return (
