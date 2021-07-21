@@ -1,0 +1,34 @@
+{
+	"automation": [
+		{
+			"category": "Internet",
+			"topic": "How to connect to Telia",
+			"description": "You need to do several things, Lorem ipsum",
+			"id": 1
+		},
+		{
+			"category": "Business",
+			"topic": "How to become a partner to Telia",
+			"description": "You need to do several things, Lorem ipsum",
+			"id": 2
+		},
+		{
+			"category": "Business",
+			"topic": "How to become a partner to Telia",
+			"description": "You need to do several things, Lorem ipsum",
+			"id": 3
+		},
+		{
+			"category": "FAQ",
+			"topic": "How to become a partner to Telia",
+			"description": "You need to do several things, Lorem ipsum",
+			"id": 4
+		},
+		{
+			"category": "FAQ",
+			"topic": "How to become a partner to Telia2",
+			"description": "You need to do several things, Lorem ipsum2",
+			"id": 5
+		}
+	]
+}

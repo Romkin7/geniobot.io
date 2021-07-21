@@ -44,12 +44,13 @@
 				}
 			}
 		}
-
-		&__item--active &__item {
-			&:hover {
-				border: 2px solid $aquagreen;
-
-				.automation__category-list__item__name__button-section {
+		&__item,
+		&__item--active {
+			&:hover & {
+				&__name {
+					border: 2px solid $aquagreen;
+				}
+				&__name__button-section {
 					background-color: $aquagreen;
 					width: 4rem;
 					height: 100%;

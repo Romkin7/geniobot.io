@@ -49,6 +49,13 @@ export interface Invoice {
 	id: number;
 }
 
+export interface IAutomation {
+	category: string;
+	topic: string;
+	description?: string;
+	id: number;
+}
+
 export interface IFullInvoice extends IInvoice {
 	status: Statuses;
 	createdAt: Date;
