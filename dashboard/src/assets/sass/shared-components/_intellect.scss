@@ -1,9 +1,9 @@
-#intellect {
-	p {
+.intellect {
+	&__p {
 		margin-bottom: 4vh;
 	}
 
-	.question {
+	&__question {
 		margin-bottom: 2vh;
 		padding: 6vh 12vw 6vh 2vw;
 		border: 1px solid $aquagreen;
@@ -14,7 +14,7 @@
 		-o-border-radius: $borderRadius;
 		position: relative;
 
-		.button-section {
+		&__button-section {
 			position: absolute;
 			bottom: 0;
 			right: 0;
@@ -26,24 +26,24 @@
 			-moz-border-radius: 16px;
 			-ms-border-radius: 16px;
 			-o-border-radius: 16px;
-		}
 
-		%buttons {
-			position: absolute;
-
-			color: $snowwhite;
-		}
-		.edit-button {
-			@extend %buttons;
-			right: 1.5vw;
-			bottom: 9vh;
-		}
-		.delete-button {
-			@extend %buttons;
-			right: 1.5vw;
-			bottom: 1vh;
+			&__edit {
+				@extend %intbuttons;
+				right: 1.5vw;
+				bottom: 9vh;
+			}
+			&__delete {
+				@extend %intbuttons;
+				right: 1.5vw;
+				bottom: 1vh;
+			}
 		}
 	}
+}
+
+%intbuttons {
+	position: absolute;
+	color: $snowwhite;
 }
 
 #transition-modal-title {
