@@ -2,12 +2,14 @@
 	display: flex;
 	&__category-list {
 		margin-right: 4vw;
+		width: 35%;
 		&__button {
 			font-family: $ibmplexmono;
 			color: $golden;
 			font-size: 1.875rem;
 			font-weight: 400;
 			margin-bottom: 4vh;
+			width: 20vw;
 
 			&__icon {
 				position: relative;
@@ -29,6 +31,10 @@
 				padding: 6vh 2vw;
 				margin-bottom: 2vh;
 				position: relative;
+				cursor: pointer;
+				&:hover {
+					border: 2px solid $aquagreen;
+				}
 
 				&__button-section {
 					&__edit {
@@ -44,13 +50,10 @@
 				}
 			}
 		}
-		&__item,
-		&__item--active {
+
+		&__item__name {
 			&:hover & {
-				&__name {
-					border: 2px solid $aquagreen;
-				}
-				&__name__button-section {
+				&__button-section {
 					background-color: $aquagreen;
 					width: 4rem;
 					height: 100%;
@@ -63,6 +66,24 @@
 					-ms-border-radius: 16px;
 					-o-border-radius: 16px;
 				}
+			}
+		}
+		&__item__name--active {
+			.automation__category-list__item__name__button-section {
+				background-color: $aquagreen;
+				width: 4rem;
+				height: 100%;
+				border-radius: 16px;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				-webkit-border-radius: 16px;
+				-moz-border-radius: 16px;
+				-ms-border-radius: 16px;
+				-o-border-radius: 16px;
+			}
+			.automation__category-list__item__name {
+				border: 2px solid $aquagreen;
 			}
 		}
 	}
