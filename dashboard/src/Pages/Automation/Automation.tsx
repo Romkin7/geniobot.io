@@ -6,24 +6,25 @@ import axios from 'axios';
 import { AddCircleOutline } from '@material-ui/icons';
 
 const Automation: FC = () => {
-	const [automation, setAutomation] = useState<IAutomation[] | null>(null);
+	const [automations, setAutomations] = useState<IAutomation[] | null>(null);
 
 	useEffect(() => {
-		if (!automation) {
+		if (!automations) {
 			axios.get('automation.json').then((res: any) => {
 				console.log(res.data.automation);
-				setAutomation(res.data.automation);
+				setAutomations(res.data.automation);
 			});
 		}
-	}, [setAutomation, automation]);
+	}, [setAutomations, automations]);
 
-	const allcategories = automation?.map((automation: any) => automation.category);
+	const allcategories = automations?.map((automation: any | undefined) => automation.category);
+	const mergedcategories = allcategories?.flat(5);
 
-	const categorylist: string[] = Array.from(new Set(allcategories));
+	const categorylist: string[] = Array.from(new Set(mergedcategories));
 	console.log(categorylist);
 
-	const faqcategorylist: any = automation?.filter((automation) => {
-		return automation.category === 'FAQ';
+	const faqcategorylist: any = automations?.filter((automation) => {
+		return automation.category.includes('FAQ');
 	});
 
 	console.log(faqcategorylist);

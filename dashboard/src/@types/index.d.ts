@@ -50,7 +50,7 @@ export interface Invoice {
 }
 
 export interface IAutomation {
-	category: string;
+	category: string[];
 	topic: string;
 	description?: string;
 	id: number;
