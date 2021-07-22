@@ -1,14 +1,17 @@
 import { AddCircleOutline, DeleteOutline, Edit } from '@material-ui/icons';
 import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 const Categories: FC<any> = ({ category }) => {
+	let { categorylink }: { categorylink: string } = useParams();
+	categorylink = category;
+	console.log(categorylink);
 	return (
 		<>
 			<NavLink
 				activeClassName="automation__category-list__item--active"
 				className="automation__category-list__item"
-				to={`automation/${category.split(' ').join('-')}`}
+				to={`automation/${categorylink.split(' ').join('-')}`}
 			>
 				<div className="automation__category-list__item__name">
 					{category}

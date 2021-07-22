@@ -4,6 +4,7 @@ import Categories from '../../Components/Main/Automation/Categories';
 import Topics from '../../Components/Main/Automation/Topics';
 import axios from 'axios';
 import { AddCircleOutline } from '@material-ui/icons';
+import { Route, Switch, useLocation, useParams } from 'react-router-dom';
 
 const Automation: FC = () => {
 	const [automations, setAutomations] = useState<IAutomation[] | null>(null);
@@ -42,12 +43,25 @@ const Automation: FC = () => {
 					})}
 			</section>
 			<div className="automation__topics-list">
-				<ul>
-					{faqcategorylist?.length &&
-						faqcategorylist.map((faq: IAutomation) => {
-							return <Topics key={faq.id} topic={faq.topic} />;
-						})}
-				</ul>
+				<Switch>
+					<Route exact path="/automation">
+						<ul>
+							{faqcategorylist?.length &&
+								faqcategorylist.map((faq: IAutomation) => {
+									return <Topics key={faq.id} topic={faq.topic} />;
+								})}
+						</ul>
+					</Route>
+
+					<Route path="/automation/:categorylink">
+						<ul>
+							{automations?.length &&
+								automations.map((faq: IAutomation) => {
+									return <Topics key={faq.id} topic={faq.topic} />;
+								})}
+						</ul>
+					</Route>
+				</Switch>
 			</div>
 		</div>
 	);
