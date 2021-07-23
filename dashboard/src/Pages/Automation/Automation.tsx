@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import { IAutomation, ITopic } from '../../@types';
-import Categories from '../../Components/Main/Automation/Categories';
+import Category from '../../Components/Category/Category';
 import Topic from '../../Components/Topic/Topic';
 import axios from 'axios';
 import { AddCircleOutline } from '@material-ui/icons';
@@ -22,7 +22,7 @@ const Automation: FC = () => {
 		}
 	}, [setCategories, categories, setTopics, topics, setVisibleTopics, selectedCategory]);
 
-	const handleCategoryClick = (selectedCategory: string) => {
+	const categoryClickHandler = (selectedCategory: string) => {
 		console.log('clicked ' + selectedCategory);
 		const filteredTopics: ITopic[] | undefined = topics?.filter((topic: ITopic) => {
 			return topic.categories.includes(selectedCategory);
@@ -41,15 +41,11 @@ const Automation: FC = () => {
 				{categories?.length &&
 					categories.map((category: string) => {
 						return (
-							<Categories
+							<Category
 								key={category}
 								category={category}
-								click={() => handleCategoryClick(category)}
-								active={
-									visibleTopics && visibleTopics[0]?.categories[0] === category
-										? 'automation__category-list__item__name--active'
-										: ''
-								}
+								categoryClickHandler={categoryClickHandler}
+								active={visibleTopics && visibleTopics[0].categories[0] === category}
 							/>
 						);
 					})}

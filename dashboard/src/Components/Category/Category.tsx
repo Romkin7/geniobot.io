@@ -1,11 +1,16 @@
-import { AddCircleOutline, DeleteOutline, Edit } from '@material-ui/icons';
+import { DeleteOutline, Edit } from '@material-ui/icons';
 import React, { FC } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
 
-const Categories: FC<any> = ({ category, click, active }) => {
+interface ICategoryProps {
+	category: string;
+	categoryClickHandler: (category: string) => void;
+	active: boolean | null;
+}
+
+const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }) => {
 	return (
 		<>
-			<div className={`automation__category-list__item__name ${active}`} onClick={click}>
+			<div className={`automation__category-list__item__name${active ? '--active' : ''}`} onClick={() => categoryClickHandler(category)}>
 				{category}
 				<div className="automation__category-list__item__name__button-section">
 					<button className="automation__category-list__item__name__button-section__edit">
@@ -20,4 +25,4 @@ const Categories: FC<any> = ({ category, click, active }) => {
 	);
 };
 
-export default Categories;
+export default Category;
