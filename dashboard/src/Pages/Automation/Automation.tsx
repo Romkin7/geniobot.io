@@ -7,6 +7,7 @@ import { AddCircleOutline } from '@material-ui/icons';
 
 const Automation: FC = () => {
 	const [categories, setCategories] = useState<string[] | null>(null);
+	const [selectedCategory, setSelectedCategory] = useState<string>('FAQ');
 	const [topics, setTopics] = useState<ITopic[] | null>(null);
 	const [visibleTopics, setVisibleTopics] = useState<ITopic[] | null>(null);
 
@@ -16,21 +17,17 @@ const Automation: FC = () => {
 				const { categories, topics }: IAutomation = res.data;
 				setCategories(categories);
 				setTopics(topics);
+				setVisibleTopics(topics.filter((topic: ITopic) => topic.categories.includes(selectedCategory)) as ITopic[]);
 			});
 		}
-	}, [setCategories, categories, setTopics, topics]);
-
-	const faqTopics: ITopic[] | undefined = topics?.filter((topic: ITopic) => {
-		return topic.categories.includes('FAQ');
-	});
-
-	console.log(faqTopics);
+	}, [setCategories, categories, setTopics, topics, setVisibleTopics, selectedCategory]);
 
 	const handleCategoryClick = (selectedCategory: string) => {
 		console.log('clicked ' + selectedCategory);
 		const filteredTopics: ITopic[] | undefined = topics?.filter((topic: ITopic) => {
 			return topic.categories.includes(selectedCategory);
 		});
+		setSelectedCategory(selectedCategory);
 		setVisibleTopics(filteredTopics as ITopic[]);
 	};
 
@@ -59,19 +56,11 @@ const Automation: FC = () => {
 			</section>
 
 			<div className="automation__topics-list">
-				{!visibleTopics ? (
+				{visibleTopics?.length && (
 					<ul>
-						{faqTopics?.length &&
-							faqTopics.map((topic: ITopic) => {
-								return <Topic key={topic.id} topic={topic.topic} />;
-							})}
-					</ul>
-				) : (
-					<ul>
-						{topics?.length &&
-							topics.map((topic: ITopic) => {
-								return <Topic key={topic.id} topic={topic.topic} />;
-							})}
+						{visibleTopics.map((topic: ITopic) => {
+							return <Topic key={topic.id} topic={topic.topic} />;
+						})}
 					</ul>
 				)}
 			</div>
