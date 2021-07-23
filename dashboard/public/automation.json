@@ -1,31 +1,32 @@
-{
-	"automation": [
+{	
+	"categories": ["Business", "FAQ", "Internet"],
+	"topics": [
 		{
-			"category": ["Internet"],
+			"categories": ["Internet"],
 			"topic": "How to connect to Telia Internet",
 			"description": "You need to do several things, Lorem ipsum",
 			"id": 1
 		},
 		{
-			"category": ["Business", "Internet"],
+			"categories": ["Business", "Internet"],
 			"topic": "How to become a partner to Telia Business+Internet",
 			"description": "You need to do several things, Lorem ipsum",
 			"id": 2
 		},
 		{
-			"category": ["Business"],
+			"categories": ["Business"],
 			"topic": "How to become a partner to Telia Business 2",
 			"description": "You need to do several things, Lorem ipsum",
 			"id": 3
 		},
 		{
-			"category": ["FAQ"],
+			"categories": ["FAQ"],
 			"topic": "How to become a partner to Telia FAQ",
 			"description": "You need to do several things, Lorem ipsum",
 			"id": 4
 		},
 		{
-			"category": ["FAQ"],
+			"categories": ["FAQ"],
 			"topic": "How to become a partner to Telia2 FAQ and something more here",
 			"description": "You need to do several things, Lorem ipsum2",
 			"id": 5

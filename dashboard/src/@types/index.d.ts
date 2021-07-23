@@ -49,11 +49,16 @@ export interface Invoice {
 	id: number;
 }
 
-export interface IAutomation {
-	category: string[];
+export interface ITopic {
+	categories: string[];
 	topic: string;
 	description?: string;
 	id: number;
+}
+
+export interface IAutomation {
+	categories: string[],
+	topics: ITopic[]
 }
 
 export interface IFullInvoice extends IInvoice {

@@ -1,43 +1,37 @@
 import React, { FC, useState, useEffect } from 'react';
-import { IAutomation } from '../../@types';
+import { IAutomation, ITopic } from '../../@types';
 import Categories from '../../Components/Main/Automation/Categories';
-import Topics from '../../Components/Main/Automation/Topics';
+import Topic from '../../Components/Topic/Topic';
 import axios from 'axios';
 import { AddCircleOutline } from '@material-ui/icons';
-import { Route, Switch, useLocation, useParams } from 'react-router-dom';
 
 const Automation: FC = () => {
-	const [automations, setAutomations] = useState<IAutomation[] | null>(null);
-	const [showtopiclist, setShowtopiclist]: any | null = useState(null);
+	const [categories, setCategories] = useState<string[] | null>(null);
+	const [topics, setTopics] = useState<ITopic[] | null>(null);
+	const [visibleTopics, setVisibleTopics] = useState<ITopic[] | null>(null);
 
 	useEffect(() => {
-		if (!automations) {
-			axios.get('automation.json').then((res: any) => {
-				console.log(res.data.automation);
-				setAutomations(res.data.automation);
+		if (!categories && !topics) {
+			axios.get('http://localhost:3001/automation.json').then((res: { data: IAutomation }) => {
+				const { categories, topics }: IAutomation = res.data;
+				setCategories(categories);
+				setTopics(topics);
 			});
 		}
-	}, [setAutomations, automations]);
+	}, [setCategories, categories, setTopics, topics]);
 
-	const allcategories = automations?.map((automation: any | undefined) => automation.category);
-	const mergedcategories = allcategories?.flat(5);
-
-	const categorylist: string[] = Array.from(new Set(mergedcategories));
-	console.log(categorylist);
-
-	const faqcategorylist: any = automations?.filter((automation) => {
-		return automation.category.includes('FAQ');
+	const faqTopics: ITopic[] | undefined = topics?.filter((topic: ITopic) => {
+		return topic.categories.includes('FAQ');
 	});
 
-	console.log(faqcategorylist);
+	console.log(faqTopics);
 
-	const handleCategoryClick = (category: string) => {
-		console.log('clicked ' + category);
-		const filteredcategorylist: any = automations?.filter((automation) => {
-			return automation.category.includes(category);
+	const handleCategoryClick = (selectedCategory: string) => {
+		console.log('clicked ' + selectedCategory);
+		const filteredTopics: ITopic[] | undefined = topics?.filter((topic: ITopic) => {
+			return topic.categories.includes(selectedCategory);
 		});
-		setShowtopiclist(filteredcategorylist);
-		console.log(showtopiclist);
+		setVisibleTopics(filteredTopics as ITopic[]);
 	};
 
 	return (
@@ -47,15 +41,15 @@ const Automation: FC = () => {
 					Categories
 					<AddCircleOutline style={{ fontSize: 30 }} className="automation__category-list__button__icon" role="button" />
 				</h2>
-				{categorylist?.length &&
-					categorylist.map((category: string) => {
+				{categories?.length &&
+					categories.map((category: string) => {
 						return (
 							<Categories
 								key={category}
 								category={category}
 								click={() => handleCategoryClick(category)}
 								active={
-									showtopiclist && showtopiclist[0]?.category[0] === category
+									visibleTopics && visibleTopics[0]?.categories[0] === category
 										? 'automation__category-list__item__name--active'
 										: ''
 								}
@@ -65,18 +59,18 @@ const Automation: FC = () => {
 			</section>
 
 			<div className="automation__topics-list">
-				{!showtopiclist ? (
+				{!visibleTopics ? (
 					<ul>
-						{faqcategorylist?.length &&
-							faqcategorylist.map((faq: IAutomation) => {
-								return <Topics key={faq.id} topic={faq.topic} />;
+						{faqTopics?.length &&
+							faqTopics.map((topic: ITopic) => {
+								return <Topic key={topic.id} topic={topic.topic} />;
 							})}
 					</ul>
 				) : (
 					<ul>
-						{showtopiclist?.length &&
-							showtopiclist.map((category: IAutomation) => {
-								return <Topics key={category.id} topic={category.topic} />;
+						{topics?.length &&
+							topics.map((topic: ITopic) => {
+								return <Topic key={topic.id} topic={topic.topic} />;
 							})}
 					</ul>
 				)}
