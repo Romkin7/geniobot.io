@@ -10,7 +10,10 @@ interface ICategoryProps {
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }) => {
 	return (
 		<>
-			<div className={`automation__category-list__item__name${active ? '--active' : ''}`} onClick={() => categoryClickHandler(category)}>
+			<div
+				className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
+				onClick={() => categoryClickHandler(category)}
+			>
 				{category}
 				<div className="automation__category-list__item__name__button-section">
 					<button className="automation__category-list__item__name__button-section__edit">

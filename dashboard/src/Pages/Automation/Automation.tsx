@@ -13,7 +13,7 @@ const Automation: FC = () => {
 
 	useEffect(() => {
 		if (!categories && !topics) {
-			axios.get('http://localhost:3001/automation.json').then((res: { data: IAutomation }) => {
+			axios.get('http://localhost:3000/automation.json').then((res: { data: IAutomation }) => {
 				const { categories, topics }: IAutomation = res.data;
 				setCategories(categories);
 				setTopics(topics);
