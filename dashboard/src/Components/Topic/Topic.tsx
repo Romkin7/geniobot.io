@@ -1,8 +1,12 @@
 import { FiberManualRecord } from '@material-ui/icons';
 import React, { FC } from 'react';
-import { Link, Route, Switch, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Topics: FC<any> = ({ topic }) => {
+interface ITopicProps {
+	topic: string;
+}
+
+const Topics: FC<ITopicProps> = ({ topic }) => {
 	/* const id: number = useParams(); */
 	return (
 		<li className="automation__topics-list__item">

@@ -9,22 +9,20 @@ interface ICategoryProps {
 
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }) => {
 	return (
-		<>
-			<div
-				className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
-				onClick={() => categoryClickHandler(category)}
-			>
-				{category}
-				<div className="automation__category-list__item__name__button-section">
-					<button className="automation__category-list__item__name__button-section__edit">
-						<Edit style={{ fontSize: 30 }} />
-					</button>
-					<button className="automation__category-list__item__name__button-section__delete">
-						<DeleteOutline style={{ fontSize: 30 }} />
-					</button>
-				</div>
+		<div
+			className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
+			onClick={() => categoryClickHandler(category)}
+		>
+			{category}
+			<div className="automation__category-list__item__name__button-section">
+				<button className="automation__category-list__item__name__button-section__edit">
+					<Edit style={{ fontSize: 30 }} />
+				</button>
+				<button className="automation__category-list__item__name__button-section__delete">
+					<DeleteOutline style={{ fontSize: 30 }} />
+				</button>
 			</div>
-		</>
+		</div>
 	);
 };
 
