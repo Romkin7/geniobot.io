@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 interface ICategoryProps {
 	category: string;
 	categoryClickHandler: (category: string) => void;
-	active: boolean | null;
+	active: boolean;
 }
 
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }) => {

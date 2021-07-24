@@ -11,11 +11,11 @@ const Automation: FC = () => {
 	const [selectedCategory, setSelectedCategory] = useState<string>('FAQ');
 	const [topics, setTopics] = useState<ITopic[] | null>(null);
 	const [visibleTopics, setVisibleTopics] = useState<ITopic[] | null>(null);
-	const [openModal, setOpenModal] = React.useState(false);
+	const [openModal, setOpenModal] = React.useState<boolean>(false);
 
 	useEffect(() => {
 		if (!categories && !topics) {
-			axios.get('http://localhost:3000/automation.json').then((res: { data: IAutomation }) => {
+			axios.get('http://localhost:3001/automation.json').then((res: { data: IAutomation }) => {
 				const { categories, topics }: IAutomation = res.data;
 				setCategories(categories);
 				setTopics(topics);
@@ -55,7 +55,7 @@ const Automation: FC = () => {
 								key={category}
 								category={category}
 								categoryClickHandler={categoryClickHandler}
-								active={visibleTopics && visibleTopics[0].categories[0] === category}
+								active={selectedCategory === category}
 							/>
 						);
 					})}
