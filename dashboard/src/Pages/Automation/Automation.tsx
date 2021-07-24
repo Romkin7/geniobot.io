@@ -4,18 +4,16 @@ import Category from '../../Components/Category/Category';
 import Topic from '../../Components/Topic/Topic';
 import axios from 'axios';
 import { AddCircleOutline } from '@material-ui/icons';
-import TransitionsModal from '../../Components/Shared/TransitionsModal';
 
 const Automation: FC = () => {
 	const [categories, setCategories] = useState<string[] | null>(null);
 	const [selectedCategory, setSelectedCategory] = useState<string>('FAQ');
 	const [topics, setTopics] = useState<ITopic[] | null>(null);
 	const [visibleTopics, setVisibleTopics] = useState<ITopic[] | null>(null);
-	const [openModal, setOpenModal] = React.useState(false);
 
 	useEffect(() => {
 		if (!categories && !topics) {
-			axios.get('http://localhost:3000/automation.json').then((res: { data: IAutomation }) => {
+			axios.get('http://localhost:3001/automation.json').then((res: { data: IAutomation }) => {
 				const { categories, topics }: IAutomation = res.data;
 				setCategories(categories);
 				setTopics(topics);
@@ -33,18 +31,10 @@ const Automation: FC = () => {
 		setVisibleTopics(filteredTopics as ITopic[]);
 	};
 
-	const handleOpenModal = () => {
-		setOpenModal(true);
-	};
-
-	const handleCloseModal = () => {
-		setOpenModal(false);
-	};
-
 	return (
 		<div className="automation">
 			<section className="automation__category-list">
-				<h2 className="automation__category-list__button" onClick={handleOpenModal}>
+				<h2 className="automation__category-list__button">
 					Categories
 					<AddCircleOutline style={{ fontSize: 30 }} className="automation__category-list__button__icon" role="button" />
 				</h2>
@@ -60,14 +50,6 @@ const Automation: FC = () => {
 						);
 					})}
 			</section>
-			<TransitionsModal
-				heading=""
-				yes="Confirm"
-				no="Cancel"
-				description="here will come form"
-				handleOpenModal={handleOpenModal}
-				handleCloseModal={handleCloseModal}
-			/>
 
 			<div className="automation__topics-list">
 				{visibleTopics?.length && (

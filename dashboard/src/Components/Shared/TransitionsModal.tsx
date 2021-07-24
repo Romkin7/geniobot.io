@@ -25,13 +25,14 @@ interface TransitionsModalProps {
 	yes: string;
 	no: string;
 	description: string;
+	open: boolean;
 	handleOpenModal: () => void;
 	handleCloseModal: () => void;
 }
 
-const TransitionsModal: FC<TransitionsModalProps> = ({ heading, yes, no, description, handleOpenModal, handleCloseModal }) => {
+const TransitionsModal: FC<TransitionsModalProps> = ({ heading, yes, no, description, open, handleOpenModal, handleCloseModal }) => {
 	const classes = useStyles();
-	const [open, setOpen] = React.useState(false);
+	/* const [open, setOpen] = React.useState(false); */
 
 	/* const handleOpenModal = () => {
 		setOpen(true);
@@ -47,7 +48,7 @@ const TransitionsModal: FC<TransitionsModalProps> = ({ heading, yes, no, descrip
 			aria-describedby="transition-modal-description"
 			className={classes.modal}
 			open={open}
-			onClose={() => handleCloseModal}
+			onClose={() => handleCloseModal()}
 			closeAfterTransition
 			BackdropComponent={Backdrop}
 			BackdropProps={{
@@ -60,7 +61,7 @@ const TransitionsModal: FC<TransitionsModalProps> = ({ heading, yes, no, descrip
 					<p id="transition-modal-description">{description}</p>
 					<div className="mod-buttons">
 						<button className="mod-buttons__button">{yes}</button>
-						<button className="mod-buttons__button" onClick={() => handleCloseModal}>
+						<button className="mod-buttons__button" onClick={() => handleCloseModal()}>
 							{no}
 						</button>
 					</div>

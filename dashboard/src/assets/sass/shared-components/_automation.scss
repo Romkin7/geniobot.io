@@ -2,7 +2,7 @@
 	display: flex;
 	&__category-list {
 		margin-right: 4vw;
-		min-width: 22vw;
+		width: 20vw;
 		&__button {
 			font-family: $ibmplexmono;
 			color: $golden;
