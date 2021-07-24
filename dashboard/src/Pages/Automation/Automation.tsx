@@ -10,7 +10,6 @@ const Automation: FC = () => {
 	const [selectedCategory, setSelectedCategory] = useState<string>('FAQ');
 	const [topics, setTopics] = useState<ITopic[] | null>(null);
 	const [visibleTopics, setVisibleTopics] = useState<ITopic[] | null>(null);
-	const [openModal, setOpenModal] = React.useState<boolean>(false);
 
 	useEffect(() => {
 		if (!categories && !topics) {
@@ -32,6 +31,19 @@ const Automation: FC = () => {
 		setVisibleTopics(filteredTopics as ITopic[]);
 	};
 
+	const deleteCategoryHandle = () => {
+		console.log('delete this category ' + selectedCategory);
+
+		const categoryRemove = () => {
+			return categories?.filter((category: string) => {
+				return category !== selectedCategory;
+			});
+		};
+		axios.put('http://localhost:3001/automation.json', {
+			categories: { categoryRemove },
+		});
+	};
+
 	return (
 		<div className="automation">
 			<section className="automation__category-list">
@@ -47,6 +59,7 @@ const Automation: FC = () => {
 								category={category}
 								categoryClickHandler={categoryClickHandler}
 								active={selectedCategory === category}
+								deleteCategoryHandle={deleteCategoryHandle}
 							/>
 						);
 					})}

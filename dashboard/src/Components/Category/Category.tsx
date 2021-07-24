@@ -1,15 +1,21 @@
 import { DeleteOutline, Edit } from '@material-ui/icons';
-import React, { FC, useState } from 'react';
+import axios from 'axios';
+import React, { FC, useEffect, useState } from 'react';
+import { IAutomation, ITopic } from '../../@types';
 import TransitionsModal from '../../Components/Shared/TransitionsModal';
 
 interface ICategoryProps {
 	category: string;
 	categoryClickHandler: (category: string) => void;
 	active: boolean;
+	deleteCategoryHandle: () => void;
 }
 
-const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }) => {
+const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, deleteCategoryHandle }) => {
 	const [openModal, setOpenModal] = useState<boolean>(false);
+	const [categories, setCategories] = useState<string[] | null>(null);
+	const [topics, setTopics] = useState<ITopic[] | null>(null);
+
 	const handleOpenModal = () => {
 		setOpenModal(true);
 	};
@@ -17,6 +23,7 @@ const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }
 	const handleCloseModal = () => {
 		setOpenModal(false);
 	};
+
 	return (
 		<div
 			className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
@@ -39,6 +46,7 @@ const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }
 				handleOpenModal={handleOpenModal}
 				handleCloseModal={handleCloseModal}
 				open={openModal}
+				yesButtonHandle={() => deleteCategoryHandle()}
 			/>
 		</div>
 	);

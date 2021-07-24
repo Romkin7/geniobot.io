@@ -28,9 +28,19 @@ interface TransitionsModalProps {
 	open: boolean;
 	handleOpenModal: () => void;
 	handleCloseModal: () => void;
+	yesButtonHandle: () => void;
 }
 
-const TransitionsModal: FC<TransitionsModalProps> = ({ heading, yes, no, description, open, handleOpenModal, handleCloseModal }) => {
+const TransitionsModal: FC<TransitionsModalProps> = ({
+	heading,
+	yes,
+	no,
+	description,
+	open,
+	handleOpenModal,
+	handleCloseModal,
+	yesButtonHandle,
+}) => {
 	const classes = useStyles();
 	/* const [open, setOpen] = React.useState(false); */
 
@@ -60,7 +70,9 @@ const TransitionsModal: FC<TransitionsModalProps> = ({ heading, yes, no, descrip
 					<h2 id="transition-modal-title">{heading}</h2>
 					<p id="transition-modal-description">{description}</p>
 					<div className="mod-buttons">
-						<button className="mod-buttons__button">{yes}</button>
+						<button className="mod-buttons__button" onClick={() => yesButtonHandle()}>
+							{yes}
+						</button>
 						<button className="mod-buttons__button" onClick={() => handleCloseModal()}>
 							{no}
 						</button>
