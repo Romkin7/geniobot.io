@@ -5,7 +5,7 @@ import TransitionsModal from '../../Components/Shared/TransitionsModal';
 interface ICategoryProps {
 	category: string;
 	categoryClickHandler: (category: string) => void;
-	active: boolean | null;
+	active: boolean;
 }
 
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active }) => {

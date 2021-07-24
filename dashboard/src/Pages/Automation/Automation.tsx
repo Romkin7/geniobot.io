@@ -10,6 +10,7 @@ const Automation: FC = () => {
 	const [selectedCategory, setSelectedCategory] = useState<string>('FAQ');
 	const [topics, setTopics] = useState<ITopic[] | null>(null);
 	const [visibleTopics, setVisibleTopics] = useState<ITopic[] | null>(null);
+	const [openModal, setOpenModal] = React.useState<boolean>(false);
 
 	useEffect(() => {
 		if (!categories && !topics) {
@@ -45,7 +46,7 @@ const Automation: FC = () => {
 								key={category}
 								category={category}
 								categoryClickHandler={categoryClickHandler}
-								active={visibleTopics && visibleTopics[0].categories[0] === category}
+								active={selectedCategory === category}
 							/>
 						);
 					})}
