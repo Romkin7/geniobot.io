@@ -32,7 +32,6 @@ const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, 
 			</div>
 			<Modal
 				title={`Delete category: ${category}?`}
-				description=""
 				handleCloseModal={handleModalState}
 				open={openModal}
 				yesButtonHandle={() => deleteCategoryHandle(category)}

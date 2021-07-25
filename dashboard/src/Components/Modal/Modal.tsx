@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 
 interface IModalProps {
 	title: string;
-	description: string;
+	description?: string;
 	open: boolean;
 	handleCloseModal: () => void;
 	yesButtonHandle: () => void;
@@ -27,7 +27,7 @@ const Modal: FC<IModalProps> = ({ title, description, open, handleCloseModal, ye
 			<Fade in={open}>
 				<div className="modal__paper">
 					<h2 className="modal__paper__title">{title}</h2>
-					<p className="modal__paper__description">{description}</p>
+					{description && (<p className="modal__paper__description">{description}</p>)}
 					<div className="modal__paper__buttons">
 						<Button type="submit" handleClick={yesButtonHandle}>
 							Yes
