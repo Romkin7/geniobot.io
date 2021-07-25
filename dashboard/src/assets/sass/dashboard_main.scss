@@ -5,11 +5,12 @@
 @import '_mixins';
 @import './shared-components/main';
 @import './shared-components/sidebar';
-@import './shared-components/_subscriptionplan.scss';
+@import './shared-components/subscriptionplan';
 @import './shared-elements/header';
 @import './shared-components/_overview';
 @import './shared-components/automation';
-@import './shared-components/_intellect.scss';
+@import './shared-components/intellect';
 @import './shared-components/button';
-@import './shared-components/_api.scss';
-@import './shared-components/_invoices.scss';
+@import './shared-components/modal';
+@import './shared-components/api';
+@import './shared-components/invoices';

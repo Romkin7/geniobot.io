@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import ChartLine from '../Components/Shared/ChartLine';
+import ChartLine from '../../Components/Shared/ChartLine';
 
 const Overview: FC = () => {
 	return (

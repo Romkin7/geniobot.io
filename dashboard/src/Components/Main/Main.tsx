@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Overview from '../../Pages/Overview';
-import Invoices from '../../Pages/Invoices';
-import Messages from '../../Pages/Messages';
-import Automation from '../../Pages/Automation';
-import Intellect from '../../Pages/Intellect';
-import Api from '../../Pages/Api';
-import Settings from '../../Pages/Settings';
-import Help from '../../Pages/Help';
-import Administrator from '../../Pages/Administrator';
+import Overview from '../../Pages/Overview/Overview';
+import Invoices from '../../Pages/Invoices/Invoices';
+import Messages from '../../Pages/Messages/Messages';
+import Automation from '../../Pages/Automation/Automation';
+import Intellect from '../../Pages/Intellect/Intellect';
+import Api from '../../Pages/API/Api';
+import Settings from '../../Pages/Settings/Settings';
+import Help from '../../Pages/Help/Help';
+import Administrator from '../../Pages/Administrator/Administrator';
 import SingleTopic from './Automation/SingleTopic';
-import ShowInvoice from '../../Pages/ShowInvoice';
+import ShowInvoice from '../../Pages/Invoices/ShowInvoice';
 
 const Main: FC = () => {
 	return (

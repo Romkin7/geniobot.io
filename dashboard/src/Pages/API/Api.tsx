@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import ApiBox from '../Components/Main/ApiBox';
+import ApiBox from '../../Components/Main/ApiBox';
 import { AddCircleOutline } from '@material-ui/icons';
 
 const Api: FC = () => {
