@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import { Modal as MaterialModal } from '@material-ui/core';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import { Modal as MaterialModal, Backdrop, Fade } from '@material-ui/core';
 import Button from '../Button/Button';
 
 interface IModalProps {
