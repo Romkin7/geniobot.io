@@ -22,26 +22,26 @@ const Automation: FC = () => {
 		}
 	}, [setCategories, categories, setTopics, topics, setVisibleTopics, selectedCategory]);
 
-	const categoryClickHandler = (selectedCategory: string) => {
-		console.log('clicked ' + selectedCategory);
-		const filteredTopics: ITopic[] | undefined = topics?.filter((topic: ITopic) => {
-			return topic.categories.includes(selectedCategory);
-		});
+	const categoryClickHandler = (category: string) => {
+		console.log('clicked ' + category);
+		const filteredTopics: ITopic[] = topics?.filter((topic: ITopic) => {
+			return topic.categories.includes(category);
+		}) as ITopic[];
 		setSelectedCategory(selectedCategory);
-		setVisibleTopics(filteredTopics as ITopic[]);
+		setVisibleTopics(filteredTopics);
 	};
 
-	const deleteCategoryHandle = () => {
-		console.log('delete this category ' + selectedCategory);
+	const deleteCategoryHandle = (categoryToDelete: string) => {
+		console.log('delete this category ' + categoryToDelete);
 
-		const categoryRemove = () => {
-			return categories?.filter((category: string) => {
-				return category !== selectedCategory;
-			});
-		};
-		axios.put('http://localhost:3001/automation.json', {
-			categories: { categoryRemove },
-		});
+		setCategories(
+			categories?.filter((category: string) => {
+				return category !== categoryToDelete;
+			}) as string[],
+		);
+		// axios.delete('http://localhost:3001/automation.json', {
+		// 	categories: { categoryRemove },
+		// });
 	};
 
 	return (
