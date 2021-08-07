@@ -57,8 +57,8 @@ export interface ITopic {
 }
 
 export interface IAutomation {
-	categories: string[],
-	topics: ITopic[]
+	categories: ICategory[];
+	topics: ITopic[];
 }
 
 export interface IFullInvoice extends IInvoice {

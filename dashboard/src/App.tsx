@@ -4,15 +4,18 @@ import Header from './Components/Header/Header';
 import Sidebar from './Components/Main/Sidebar';
 import Main from './Components/Main/Main';
 import Footer from './Components/Footer/Footer';
+import ModalContextProvider from './store/modal-context';
 
 function App() {
 	return (
-		<Router>
-			<Header />
-			<Sidebar />
-			<Main />
-			<Footer />
-		</Router>
+		<ModalContextProvider>
+			<Router>
+				<Header />
+				<Sidebar />
+				<Main />
+				<Footer />
+			</Router>
+		</ModalContextProvider>
 	);
 }
 
