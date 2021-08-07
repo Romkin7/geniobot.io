@@ -1,13 +1,13 @@
 import React, { FC, useState, useEffect } from 'react';
-import { IAutomation, ITopic } from '../../@types';
+import { IAutomation, ITopic, ICategory } from '../../@types';
 import Category from '../../Components/Category/Category';
 import Topic from '../../Components/Topic/Topic';
 import axios from 'axios';
 import { AddCircleOutline } from '@material-ui/icons';
 
 const Automation: FC = () => {
-	const [categories, setCategories] = useState<string[] | null>(null);
-	const [selectedCategory, setSelectedCategory] = useState<string>('FAQ');
+	const [categories, setCategories] = useState<ICategory[] | null>(null);
+	const [selectedCategory, setSelectedCategory] = useState<ICategory>({ name: 'FAQ', id: 2, questions: [] });
 	const [topics, setTopics] = useState<ITopic[] | null>(null);
 	const [visibleTopics, setVisibleTopics] = useState<ITopic[] | null>(null);
 
@@ -17,29 +17,29 @@ const Automation: FC = () => {
 				const { categories, topics }: IAutomation = res.data;
 				setCategories(categories);
 				setTopics(topics);
-				setVisibleTopics(topics.filter((topic: ITopic) => topic.categories.includes(selectedCategory)) as ITopic[]);
+				setVisibleTopics(topics.filter((topic: ITopic) => topic.categories.includes(selectedCategory.name)));
 			});
 		}
 	}, [setCategories, categories, setTopics, topics, setVisibleTopics, selectedCategory]);
 
-	const categoryClickHandler = (category: string) => {
-		console.log('clicked ' + category);
+	const categoryClickHandler = (name: string) => {
+		console.log('clicked ' + name);
 		const filteredTopics: ITopic[] = topics?.filter((topic: ITopic) => {
-			return topic.categories.includes(category);
+			return topic.categories.includes(name);
 		}) as ITopic[];
 		setSelectedCategory(selectedCategory);
 		setVisibleTopics(filteredTopics);
 	};
 
-	const deleteCategoryHandle = (categoryToDelete: string) => {
-		console.log('delete this category ' + categoryToDelete);
+	const deleteCategoryHandle = (id: number) => {
+		console.log('delete this category ' + id);
 
 		setCategories(
-			categories?.filter((category: string) => {
-				return category !== categoryToDelete;
-			}) as string[],
+			categories?.filter((category: ICategory) => {
+				return category.id !== id;
+			}) as ICategory[],
 		);
-		// axios.delete('http://localhost:3001/automation.json', {
+		// axios.delete('http://localhost:8080/automation.json', {
 		// 	categories: { categoryRemove },
 		// });
 	};
@@ -52,13 +52,13 @@ const Automation: FC = () => {
 					<AddCircleOutline style={{ fontSize: 30 }} className="automation__category-list__button__icon" role="button" />
 				</h2>
 				{categories?.length &&
-					categories.map((category: string) => {
+					categories.map((category: ICategory) => {
 						return (
 							<Category
-								key={category}
+								key={category.id}
 								category={category}
 								categoryClickHandler={categoryClickHandler}
-								active={selectedCategory === category}
+								active={selectedCategory.name === category.name}
 								deleteCategoryHandle={deleteCategoryHandle}
 							/>
 						);

@@ -1,5 +1,9 @@
-{	
-	"categories": ["Business", "FAQ", "Internet"],
+{
+	"categories": [
+		{ "name": "Business", "id": 1 },
+		{ "name": "FAQ", "id": 2 },
+		{ "name": "Internet", "id": 3 }
+	],
 	"topics": [
 		{
 			"categories": ["Internet"],

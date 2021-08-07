@@ -1,41 +1,33 @@
 import { DeleteOutline, Edit } from '@material-ui/icons';
-import React, { FC, useState } from 'react';
+import React, { FC, useContext } from 'react';
 import Modal from '../Modal/Modal';
+import { ModalContext } from '../../store/modal-context';
+import { ICategory } from '../../@types';
 
 interface ICategoryProps {
-	category: string;
-	categoryClickHandler: (category: string) => void;
+	category: ICategory;
+	categoryClickHandler: (name: string) => void;
 	active: boolean;
-	deleteCategoryHandle: (category: string) => void;
+	deleteCategoryHandle: (id: number) => void;
 }
 
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, deleteCategoryHandle }) => {
-	const [openModal, setOpenModal] = useState<boolean>(false);
-
-	const handleModalState = () => {
-		setOpenModal(!openModal);
-	};
-
+	const { modalOpen, toggleModal } = useContext(ModalContext);
 	return (
 		<div
 			className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
-			onClick={() => categoryClickHandler(category)}
+			onClick={() => categoryClickHandler(category.name)}
 		>
-			{category}
+			{category.name}
 			<div className="automation__category-list__item__name__button-section">
 				<button className="automation__category-list__item__name__button-section__edit">
 					<Edit style={{ fontSize: 30 }} />
 				</button>
-				<button className="automation__category-list__item__name__button-section__delete" onClick={handleModalState}>
+				<button className="automation__category-list__item__name__button-section__delete" onClick={() => toggleModal(modalOpen)}>
 					<DeleteOutline style={{ fontSize: 30 }} />
 				</button>
 			</div>
-			<Modal
-				title={`Delete category: ${category}?`}
-				handleCloseModal={handleModalState}
-				open={openModal}
-				yesButtonHandle={() => deleteCategoryHandle(category)}
-			/>
+			<Modal title={`Delete category: ${category}?`} yesButtonHandle={() => deleteCategoryHandle(category.id)} />
 		</div>
 	);
 };
