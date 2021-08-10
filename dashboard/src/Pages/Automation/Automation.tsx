@@ -13,14 +13,12 @@ const Automation: FC = () => {
 
 	useEffect(() => {
 		if (!categories && !topics) {
-			axios
-				.get('https://61126751edccb70eafdb624a--practical-almeida-74b50f.netlify.app/automation.json')
-				.then((res: { data: IAutomation }) => {
-					const { categories, topics }: IAutomation = res.data;
-					setCategories(categories);
-					setTopics(topics);
-					setVisibleTopics(topics.filter((topic: ITopic) => topic.categories.includes(selectedCategory.name)));
-				});
+			axios.get('/automation.json').then((res: { data: IAutomation }) => {
+				const { categories, topics }: IAutomation = res.data;
+				setCategories(categories);
+				setTopics(topics);
+				setVisibleTopics(topics.filter((topic: ITopic) => topic.categories.includes(selectedCategory.name)));
+			});
 		}
 	}, [setCategories, categories, setTopics, topics, setVisibleTopics, selectedCategory]);
 
