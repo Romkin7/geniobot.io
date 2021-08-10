@@ -18,7 +18,7 @@ const ShowInvoice: FC = () => {
 
 	useEffect(() => {
 		if (!invoices) {
-			axios.get('http://localhost:3001/invoices.json').then((res: any) => {
+			axios.get('https://61126751edccb70eafdb624a--practical-almeida-74b50f.netlify.app/invoices.json').then((res: any) => {
 				setInvoices(res.data.invoices);
 			});
 		} else {
