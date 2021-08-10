@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ProgressProvider from './ProgressProvider';
@@ -15,10 +15,10 @@ const SubscriptionRing: FC /* <RingValueProps> */ = () => {
 		src: 'https://res.cloudinary.com/geniobot-io/image/upload/v1624997376/FREE_thslxx.svg',
 		alt: 'free subscription plan',
 	};
-	const proplantype: PlanType = {
+	/* const proplantype: PlanType = {
 		src: 'https://res.cloudinary.com/geniobot-io/image/upload/v1624997376/PRO_jsvfzy.svg',
 		alt: 'pro subscription plan',
-	};
+	}; */
 
 	const value = 0.55;
 
