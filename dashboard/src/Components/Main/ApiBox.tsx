@@ -31,12 +31,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function getStyles(name: any, categoryName: any, theme: any) {
-	return {
-		fontWeight: categoryName.indexOf(name) === -1 ? theme.typography.fontWeightRegular : theme.typography.fontWeightMedium,
-	};
-}
-
 interface ApiBoxProps {
 	address: string;
 	name: string;

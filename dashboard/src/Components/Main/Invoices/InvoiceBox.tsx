@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link, useRouteMatch, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Invoice } from '../../../@types';
 
 interface InvoiceBoxProps {
@@ -8,9 +8,7 @@ interface InvoiceBoxProps {
 
 const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
 	const { number, sum, dueDate, paymentDate, id } = invoice;
-	let location = useLocation();
-	console.log(location);
-	let { path, url } = useRouteMatch();
+
 	return (
 		<>
 			<div className="invoices__box">
