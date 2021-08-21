@@ -22,6 +22,12 @@ export interface ISavedMessage extends IMessage {
 	createdAt: Date;
 	updatedAt: Date;
 }
+
+export interface IModal {
+	title: string;
+	description: string;
+	modalOpen: boolean;
+}
 /** Company Settings types */
 interface ILogo {
 	src: string;

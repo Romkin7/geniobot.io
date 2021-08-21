@@ -1,7 +1,7 @@
 import { DeleteOutline, Edit } from '@material-ui/icons';
 import React, { FC, useContext } from 'react';
 import Modal from '../Modal/Modal';
-import { ModalContext } from '../../store/modal-context';
+import { ModalContext } from '../../store/AppContext';
 import { ICategory } from '../../@types';
 
 interface ICategoryProps {
@@ -23,11 +23,14 @@ const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, 
 				<button className="automation__category-list__item__name__button-section__edit">
 					<Edit style={{ fontSize: 30 }} />
 				</button>
-				<button className="automation__category-list__item__name__button-section__delete" onClick={() => toggleModal(modalOpen)}>
+				<button
+					className="automation__category-list__item__name__button-section__delete"
+					onClick={() => toggleModal(modalOpen, `Delete category: ${category.name}?`)}
+				>
 					<DeleteOutline style={{ fontSize: 30 }} />
 				</button>
 			</div>
-			<Modal title={`Delete category: ${category}?`} yesButtonHandle={() => deleteCategoryHandle(category.id)} />
+			{/* <Modal title={`Delete category: ${category.name}?`} yesButtonHandle={() => deleteCategoryHandle(category.id)} /> */}
 		</div>
 	);
 };

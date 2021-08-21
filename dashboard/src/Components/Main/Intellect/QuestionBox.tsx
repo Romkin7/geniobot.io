@@ -1,7 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import { Edit, DeleteOutline } from '@material-ui/icons';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Modal, Backdrop, Fade, FormControl, InputLabel, Select, Input, Chip, MenuItem } from '@material-ui/core';
+import { Backdrop, Fade, FormControl, InputLabel, Select, Input, Chip, MenuItem } from '@material-ui/core';
+import { ModalContext } from '../../../store/AppContext';
+import Modal from '../../Modal/Modal';
 
 interface QuestioProps {
 	question: string;
@@ -42,6 +44,8 @@ function getStyles(name: any, categoryName: any, theme: any) {
 }
 
 const QuestionBox: FC<QuestioProps> = ({ question }) => {
+	const { modalOpen, toggleModal } = useContext(ModalContext);
+
 	const classes = useStyles();
 	/*delete button*/
 	const [opendelete, setOpenDelete] = React.useState(false);
@@ -88,15 +92,22 @@ const QuestionBox: FC<QuestioProps> = ({ question }) => {
 		<div className="intellect__question">
 			{question}
 			<div className="intellect__question__button-section">
-				<button className="intellect__question__button-section__edit" onClick={handleOpenEdit}>
+				<button
+					className="intellect__question__button-section__edit"
+					onClick={() => toggleModal(modalOpen, `Choose category where you want to move this question:`)}
+				>
 					<Edit style={{ fontSize: 30 }} />
 				</button>
-				<button className="intellect__question__button-section__delete" onClick={handleOpenDelete}>
+				<button
+					className="intellect__question__button-section__delete"
+					onClick={() => toggleModal(modalOpen, `Do you really want to delete this question:`, `${question}?`)}
+				>
 					<DeleteOutline style={{ fontSize: 30 }} />
 				</button>
 			</div>
 			{/*  delete button modal */}
-			<Modal
+			<Modal title={`Do you really want to delete this question:`} description={`${question}?`} yesButtonHandle={() => {}} />
+			{/* <Modal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"
 				className={classes.modal}
@@ -120,10 +131,41 @@ const QuestionBox: FC<QuestioProps> = ({ question }) => {
 						</div>
 					</div>
 				</Fade>
-			</Modal>
+			</Modal> */}
 
 			{/*  edit button modal */}
-			<Modal
+			{/* <Modal
+				title={`Choose category where you want to move this question:`}
+				description={
+					<FormControl className={classes.formControl}>
+						<InputLabel id="demo-mutiple-chip-label"></InputLabel>
+						<Select
+							labelId="demo-mutiple-chip-label"
+							id="demo-mutiple-chip"
+							multiple
+							value={categoryName}
+							onChange={handleChange}
+							input={<Input id="select-multiple-chip" />}
+							renderValue={(selected: any) => (
+								<div className={classes.chips}>
+									{selected.map((value: any) => (
+										<Chip key={value} label={value} className={classes.chip} />
+									))}
+								</div>
+							)}
+							MenuProps={MenuProps}
+						>
+							{names.map((name) => (
+								<MenuItem key={name} value={name} style={getStyles(name, categoryName, theme)}>
+									{name}
+								</MenuItem>
+							))}
+						</Select>
+					</FormControl>
+				}
+				yesButtonHandle={() => {}}
+			/> */}
+			{/* <Modal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"
 				className={classes.modal}
@@ -172,7 +214,7 @@ const QuestionBox: FC<QuestioProps> = ({ question }) => {
 						</div>
 					</div>
 				</Fade>
-			</Modal>
+			</Modal> */}
 		</div>
 	);
 };
