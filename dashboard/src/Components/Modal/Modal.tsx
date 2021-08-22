@@ -10,7 +10,7 @@ const Modal: FC = () => {
 	console.log(id, title, description, modalOpen);
 	const handleSubmit = (event: FormEvent, id: number) => {
 		event.preventDefault();
-		console.log(id)
+		console.log(id);
 	}
 	return (
 		<MaterialModal

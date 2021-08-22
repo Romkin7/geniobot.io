@@ -11,7 +11,7 @@ interface ICategoryProps {
 }
 
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, deleteCategoryHandle }) => {
-	const appContext = useContext(AppContext);
+	const { setModalAction } = useContext(AppContext);
 	return (
 		<div
 			className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
@@ -25,7 +25,7 @@ const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, 
 				<button
 					className="automation__category-list__item__name__button-section__delete"
 					onClick={() =>
-						appContext.setModalAction({ modalOpen: true, title: `Delete category: ${category.name}?`, description: '', id: category.id })
+						setModalAction({ modalOpen: true, title: `Delete category: ${category.name}?`, description: '', id: category.id })
 					}
 				>
 					<DeleteOutline style={{ fontSize: 30 }} />
