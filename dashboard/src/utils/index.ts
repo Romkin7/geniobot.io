@@ -3,5 +3,6 @@ export function resetModal() {
 		modalOpen: false,
 		title: '',
 		description: '',
+		id: 0
 	};
 }

@@ -4,12 +4,12 @@ import { ButtonTypes } from '../../@types/index';
 interface IButtonProps {
 	type: ButtonTypes;
 	handleClick: (event: MouseEvent) => void;
-	style: string;
+	variant: string;
 }
 
-const Button: FC<IButtonProps> = ({ type, children, handleClick, style }) => {
+const Button: FC<IButtonProps> = ({ type, children, handleClick, variant }) => {
 	return (
-		<button className={style} type={type} onClick={(event: MouseEvent) => handleClick(event)}>
+		<button className={variant} type={type} onClick={(event: MouseEvent) => handleClick(event)}>
 			{children}
 		</button>
 	);

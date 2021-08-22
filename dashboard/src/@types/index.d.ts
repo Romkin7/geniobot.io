@@ -27,6 +27,7 @@ export interface IModal {
 	title: string;
 	description: string;
 	modalOpen: boolean;
+	id: number;
 }
 /** Company Settings types */
 interface ILogo {

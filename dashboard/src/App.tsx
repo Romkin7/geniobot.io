@@ -16,7 +16,7 @@ function App() {
 				<Header />
 				<Sidebar />
 				<Main />
-				{modal.modalOpen && <Modal title={modal.title} yesButtonHandle={() => {}} />}
+				<Modal />
 				<Footer />
 			</Router>
 		</AppContextProvider>

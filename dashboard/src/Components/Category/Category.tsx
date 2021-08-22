@@ -1,7 +1,6 @@
 import { DeleteOutline, Edit } from '@material-ui/icons';
 import React, { FC, useContext } from 'react';
-import Modal from '../Modal/Modal';
-import { ModalContext } from '../../store/AppContext';
+import { AppContext } from '../../store/appContext';
 import { ICategory } from '../../@types';
 
 interface ICategoryProps {
@@ -12,7 +11,7 @@ interface ICategoryProps {
 }
 
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, deleteCategoryHandle }) => {
-	const { modalOpen, toggleModal } = useContext(ModalContext);
+	const appContext = useContext(AppContext);
 	return (
 		<div
 			className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
@@ -25,12 +24,13 @@ const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, 
 				</button>
 				<button
 					className="automation__category-list__item__name__button-section__delete"
-					onClick={() => toggleModal(modalOpen, `Delete category: ${category.name}?`)}
+					onClick={() =>
+						appContext.setModalAction({ modalOpen: true, title: `Delete category: ${category.name}?`, description: '', id: category.id })
+					}
 				>
 					<DeleteOutline style={{ fontSize: 30 }} />
 				</button>
 			</div>
-			{/* <Modal title={`Delete category: ${category.name}?`} yesButtonHandle={() => deleteCategoryHandle(category.id)} /> */}
 		</div>
 	);
 };
