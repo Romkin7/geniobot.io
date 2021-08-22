@@ -1,8 +1,8 @@
 import { DeleteOutline, Edit } from '@material-ui/icons';
 import React, { FC, useContext } from 'react';
-import Modal from '../Modal/Modal';
-import { ModalContext } from '../../store/modal-context';
+import { AppContext } from '../../store/appContext';
 import { ICategory } from '../../@types';
+import Button from '../Button/Button';
 
 interface ICategoryProps {
 	category: ICategory;
@@ -12,7 +12,7 @@ interface ICategoryProps {
 }
 
 const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, deleteCategoryHandle }) => {
-	const { modalOpen, toggleModal } = useContext(ModalContext);
+	const { setModalAction } = useContext(AppContext);
 	return (
 		<div
 			className={`automation__category-list__item__name ${active ? 'automation__category-list__item__name--active' : ''}`}
@@ -20,14 +20,19 @@ const Category: FC<ICategoryProps> = ({ category, categoryClickHandler, active, 
 		>
 			{category.name}
 			<div className="automation__category-list__item__name__button-section">
-				<button className="automation__category-list__item__name__button-section__edit">
+				<Button type="button" variant="automation__category-list__item__name__button-section__edit" handleClick={() => {}}>
 					<Edit style={{ fontSize: 30 }} />
-				</button>
-				<button className="automation__category-list__item__name__button-section__delete" onClick={() => toggleModal(modalOpen)}>
+				</Button>
+				<Button
+					type="button"
+					variant="automation__category-list__item__name__button-section__delete"
+					handleClick={() =>
+						setModalAction({ modalOpen: true, title: `Delete category: ${category.name}?`, description: '', id: category.id })
+					}
+				>
 					<DeleteOutline style={{ fontSize: 30 }} />
-				</button>
+				</Button>
 			</div>
-			<Modal title={`Delete category: ${category}?`} yesButtonHandle={() => deleteCategoryHandle(category.id)} />
 		</div>
 	);
 };

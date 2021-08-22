@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Edit, DeleteOutline } from '@material-ui/icons';
 import QuestionBox from '../../Components/Main/Intellect/QuestionBox';
+import Button from '../../Components/Button/Button';
 
 const Intellect: FC = () => {
 	return (
@@ -13,12 +14,12 @@ const Intellect: FC = () => {
 			<div className="intellect__question">
 				Where can i buy telephone card - just to show more q?
 				<div className="intellect__question__button-section">
-					<button className="intellect__question__button-section__edit">
+					<Button type="button" variant="intellect__question__button-section__edit" handleClick={() => {}}>
 						<Edit style={{ fontSize: 30 }} />
-					</button>
-					<button className="intellect__question__button-section__delete">
+					</Button>
+					<Button type="button" variant="intellect__question__button-section__delete" handleClick={() => {}}>
 						<DeleteOutline style={{ fontSize: 30 }} />
-					</button>
+					</Button>
 				</div>
 			</div>
 		</div>

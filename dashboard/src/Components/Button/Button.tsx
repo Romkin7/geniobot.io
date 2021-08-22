@@ -1,17 +1,18 @@
-import React, { FC, MouseEvent} from 'react';
-import {ButtonTypes} from '../../@types/index';
+import React, { FC, MouseEvent } from 'react';
+import { ButtonTypes } from '../../@types/index';
 
 interface IButtonProps {
 	type: ButtonTypes;
 	handleClick: (event: MouseEvent) => void;
+	variant: string;
 }
 
-const Button: FC<IButtonProps> = ({type, children, handleClick}) => {
-    return (
-		<button className="button" type={type} onClick={(event: MouseEvent) => handleClick(event)}>
+const Button: FC<IButtonProps> = ({ type, children, handleClick, variant }) => {
+	return (
+		<button className={variant} type={type} onClick={(event: MouseEvent) => handleClick(event)}>
 			{children}
 		</button>
 	);
-}
+};
 
 export default Button;
