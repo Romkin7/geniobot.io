@@ -3,6 +3,7 @@ import { CheckCircleOutline, PauseCircleOutline } from '@material-ui/icons';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Invoice } from '../../@types';
+import Button from '../../Components/Button/Button';
 
 const ShowInvoice: FC = () => {
 	const [loading, setLoading] = useState<boolean>(true);
@@ -57,15 +58,16 @@ const ShowInvoice: FC = () => {
 							<p className="singleinv__invdata__data__p">{dueDate}</p>
 							<p className="singleinv__invdata__data__p">{sum}€</p>
 						</div>
-						<button className="button__openpdf">
+						<Button type="button" variant="button__openpdf" handleClick={() => {}}>
 							<img
 								src="https://res.cloudinary.com/geniobot-io/image/upload/v1626003726/open_button_glnjsk.png"
 								alt="pdf icon with gradient"
 							/>
-						</button>
+						</Button>
 					</div>
-
-					<button className={`button__payonline ${paid ? 'button__payonline--paid' : ''}`}>Pay online</button>
+					<Button variant={`button__payonline ${paid ? 'button__payonline--paid' : ''}`} type="button" handleClick={() => {}}>
+						Pay online
+					</Button>
 				</section>
 			)}
 		</>

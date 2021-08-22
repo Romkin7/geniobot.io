@@ -1,6 +1,7 @@
 import React, { FC, useContext } from 'react';
 import { Edit, DeleteOutline } from '@material-ui/icons';
 import { AppContext } from '../../../store/appContext';
+import Button from '../../Button/Button';
 
 interface QuestioProps {
 	question: string;
@@ -9,7 +10,6 @@ interface QuestioProps {
 const QuestionBox: FC<QuestioProps> = ({ question }) => {
 	const { setModalAction } = useContext(AppContext);
 
-	
 	/*category names*/
 	const names = ['Internet', 'Telephone', 'Business', 'Private'];
 	const ITEM_HEIGHT = 48;
@@ -27,27 +27,60 @@ const QuestionBox: FC<QuestioProps> = ({ question }) => {
 		<div className="intellect__question">
 			{question}
 			<div className="intellect__question__button-section">
-				<button
-					className="intellect__question__button-section__edit"
-					onClick={() =>
-						setModalAction({ modalOpen: true, title: `Choose category where you want to move this question:`, description: '', id: 0 })
+				<Button
+					type="button"
+					variant="intellect__question__button-section__edit"
+					handleClick={() =>
+						setModalAction({
+							modalOpen: true,
+							title: `Choose category where you want to move this question:`,
+							description: '',
+							id: 0,
+						})
 					}
 				>
 					<Edit style={{ fontSize: 30 }} />
-				</button>
-				<button
+				</Button>
+				<Button
+					type="button"
+					variant="intellect__question__button-section__delete"
+					handleClick={() =>
+						setModalAction({
+							modalOpen: true,
+							title: `Do you really want to delete this question:`,
+							description: `${question}?`,
+							id: 0,
+						})
+					}
+				>
+					<DeleteOutline style={{ fontSize: 30 }} />
+				</Button>
+				{/* <button
+					className="intellect__question__button-section__edit"
+					onClick={() =>
+						setModalAction({
+							modalOpen: true,
+							title: `Choose category where you want to move this question:`,
+							description: '',
+							id: 0,
+						})
+					}
+				>
+					<Edit style={{ fontSize: 30 }} />
+				</button> */}
+				{/* <button
 					className="intellect__question__button-section__delete"
 					onClick={() =>
 						setModalAction({
 							modalOpen: true,
 							title: `Do you really want to delete this question:`,
 							description: `${question}?`,
-							id: 0
+							id: 0,
 						})
 					}
 				>
 					<DeleteOutline style={{ fontSize: 30 }} />
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);
