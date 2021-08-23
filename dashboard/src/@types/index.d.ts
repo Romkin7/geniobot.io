@@ -29,6 +29,12 @@ export interface IModal {
 	modalOpen: boolean;
 	id: number;
 }
+
+export interface IPopover {
+	anchorEl: any;
+	content: any;
+	id: string | undefined;
+}
 /** Company Settings types */
 interface ILogo {
 	src: string;
