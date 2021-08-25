@@ -120,6 +120,12 @@ export interface ICategory {
 	questions: IQuestion[];
 }
 export interface ICompanyAccount {
+	active: boolean;
+	type: AccountTypes;
+}
+export interface IUser {
+	id: number;
+	account: ICompanyAccount;
 	settings: ICompanySettings;
 	invoices: IInvoice[];
 	messages: IMessage[];
