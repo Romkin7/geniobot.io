@@ -1,4 +1,4 @@
-import { IMessage } from '../@types';
+import { IMessage } from '../../@types';
 import { Express } from 'express';
 import { Message } from '../models/Message';
 import { Server, Socket } from 'socket.io';

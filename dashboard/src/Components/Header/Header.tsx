@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ILogo, PlanType } from '../../@types/index.d';
+import { ILogo, IPlanType } from '../../@types';
 import SubscriptionRing from '../Shared/SubscriptionRing';
 
 const companylogo: ILogo = {
@@ -7,7 +7,7 @@ const companylogo: ILogo = {
 	alt: 'Telia logo',
 };
 
-const plantypeicon: PlanType = {
+const plantypeicon: IPlanType = {
 	icon: 'https://res.cloudinary.com/geniobot-io/image/upload/v1625000773/x-pink_vzexd0.svg',
 	alt: 'free subscription plan icon',
 };

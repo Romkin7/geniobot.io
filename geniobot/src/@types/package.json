@@ -1,0 +1,6 @@
+{
+    "name": "shared-types",
+    "author": "Roman Tuomisto & Julia Matviishyna",
+    "description": "Shared type for Geniobot app",
+    "main": "index.d.ts"
+}

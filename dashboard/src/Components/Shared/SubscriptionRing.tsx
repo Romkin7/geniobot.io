@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ProgressProvider from './ProgressProvider';
-import { PlanType } from '../../@types/index.d';
+import { IPlanType } from '../../@types/index.d';
 
 /* interface RingValueProps {
 	setvalue: (event: any) => void;
@@ -11,7 +11,7 @@ import { PlanType } from '../../@types/index.d';
 const SubscriptionRing: FC /* <RingValueProps> */ = () => {
 	/* const [value, setValue] = useState(0.55); */
 
-	const freeplantype: PlanType = {
+	const freeplantype: IPlanType = {
 		src: 'https://res.cloudinary.com/geniobot-io/image/upload/v1624997376/FREE_thslxx.svg',
 		alt: 'free subscription plan',
 	};
