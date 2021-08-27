@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 import React, { FC } from 'react';
-import { resetCategory, resetLoading, resetModal } from '../utils';
-import { ICategory } from '../@types';
+import { resetCategory, resetLoading, resetLoggedInUser, resetModal } from '../utils';
+import { ICategory, ILoggedInUser } from '../@types';
 
 export interface IModal {
 	title: string;
@@ -22,6 +22,8 @@ interface IAppContext {
 	setLoadingAction: (loading: ILoading) => void;
 	categories: ICategory[];
 	setCategoriesAction: (categories: ICategory[]) => void;
+	loggedInUser: ILoggedInUser;
+	setLoggedInUserAction: (loggedInUser: ILoggedInUser) => void;
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -37,23 +39,32 @@ export const AppContext = createContext<IAppContext>({
 	setCategoriesAction: (categories: ICategory[]) => {
 		return;
 	},
+	loggedInUser: resetLoggedInUser(),
+	setLoggedInUserAction: (loggedinuser: ILoggedInUser) => {
+		return;
+	},
 });
 
 const AppContextProvider: FC = ({ children }) => {
 	const [modal, setModal] = useState<IModal>(() => resetModal());
 	const [loading, setLoading] = useState<ILoading>(() => resetLoading());
 	const [categories, setCategories] = useState<ICategory[]>(() => [resetCategory()]);
+	const [loggedInUser, setLoggedInUser] = useState<ILoggedInUser>(() => resetLoggedInUser());
 
 	const setModalAction = (modal: IModal) => {
-		setModal(modal);
+		setModal(() => modal);
 	};
 
 	const setLoadingAction = (loading: ILoading) => {
-		setLoading(loading);
+		setLoading(() => loading);
 	};
 
 	const setCategoriesAction = (categories: ICategory[]) => {
-		setCategories(categories);
+		setCategories(() => categories);
+	};
+
+	const setLoggedInUserAction = (loggedInUser: ILoggedInUser) => {
+		setLoggedInUser(() => loggedInUser);
 	};
 
 	const context = {
@@ -63,6 +74,8 @@ const AppContextProvider: FC = ({ children }) => {
 		setLoadingAction,
 		categories,
 		setCategoriesAction,
+		loggedInUser,
+		setLoggedInUserAction,
 	};
 
 	return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
