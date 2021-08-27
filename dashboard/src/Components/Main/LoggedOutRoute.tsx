@@ -1,30 +1,28 @@
 import React, { ComponentType, FC, useContext } from 'react';
+
 import { Redirect, Route } from 'react-router-dom';
-import { IUser } from '../../@types';
 import { AppContext } from '../../store/appContext';
 
-interface ILoggedInRouteProps {
+interface ILoggedOutRouteProps {
 	exact?: boolean;
 	path: string;
 	Component: ComponentType<any>;
 }
 
-const LoggedInRoute: FC<ILoggedInRouteProps> = ({ Component, ...rest }) => {
+const LoggedOutRoute: FC<ILoggedOutRouteProps> = ({ Component, ...rest }) => {
 	const { loggedInUser } = useContext(AppContext);
-	const { isAuthenticated, user } = loggedInUser;
+	const { isAuthenticated } = loggedInUser;
 	return (
 		<Route
 			{...rest}
 			render={(props) => {
-				if (isAuthenticated && !user?.account.active) {
-					return <div>Your bill is not paid</div>;
-				} else if (isAuthenticated) {
+				if (!isAuthenticated) {
 					return <Component {...props} />;
 				} else {
 					return (
 						<Redirect
 							to={{
-								pathname: '/login',
+								pathname: '/',
 								state: {
 									from: props.location,
 								},
@@ -37,4 +35,4 @@ const LoggedInRoute: FC<ILoggedInRouteProps> = ({ Component, ...rest }) => {
 	);
 };
 
-export default LoggedInRoute;
+export default LoggedOutRoute;

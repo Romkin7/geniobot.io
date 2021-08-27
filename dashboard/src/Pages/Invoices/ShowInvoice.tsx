@@ -8,7 +8,15 @@ import Button from '../../Components/Button/Button';
 const ShowInvoice: FC = () => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [invoices, setInvoices] = useState<IInvoice[] | null>(null);
-	const [invoice, setInvoice] = useState<IInvoice>({ invoiceNumber: 0, id: 0, dueDate: '', paymentDate: '', sum: 0, paid: false, createdAt: '' });
+	const [invoice, setInvoice] = useState<IInvoice>({
+		invoiceNumber: '',
+		id: 0,
+		dueDate: '',
+		paymentDate: '',
+		sum: 0,
+		paid: false,
+		createdAt: '',
+	});
 	const { id }: { id: string } = useParams();
 
 	const findInvoice = useCallback(() => {

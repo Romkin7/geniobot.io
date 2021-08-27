@@ -11,22 +11,26 @@ import Help from '../../Pages/Help/Help';
 import Administrator from '../../Pages/Administrator/Administrator';
 import SingleTopic from './Automation/SingleTopic';
 import ShowInvoice from '../../Pages/Invoices/ShowInvoice';
+import LoggedInRoute from './LoggedInRoute';
+import LoggedOutRoute from './LoggedOutRoute';
+import LoginPage from '../../Pages/LoginPage/LoginPage';
 
 const Main: FC = () => {
 	return (
 		<main>
 			<Switch>
-				<Route path="/" exact component={Overview} />
-				<Route path="/invoices" exact component={Invoices} />
-				<Route path={'/invoices/:id'} component={ShowInvoice} />
-				<Route path="/messages" component={Messages} />
-				<Route path="/automation" exact component={Automation} />
-				<Route path="/automation/:id" component={SingleTopic} />
-				<Route path="/intellect" component={Intellect} />
-				<Route path="/api-list" component={Api} />
-				<Route path="/settings" component={Settings} />
-				<Route path="/help" component={Help} />
-				<Route path="/administrator" component={Administrator} />
+				<LoggedOutRoute path="/login" Component={LoginPage} />
+				<LoggedInRoute path="/" exact Component={Overview} />
+				<LoggedInRoute path="/invoices" exact Component={Invoices} />
+				<LoggedInRoute path={'/invoices/:id'} Component={ShowInvoice} />
+				<LoggedInRoute path="/messages" Component={Messages} />
+				<LoggedInRoute path="/automation" exact Component={Automation} />
+				<LoggedInRoute path="/automation/:id" Component={SingleTopic} />
+				<LoggedInRoute path="/intellect" Component={Intellect} />
+				<LoggedInRoute path="/api-list" Component={Api} />
+				<LoggedInRoute path="/settings" Component={Settings} />
+				<LoggedInRoute path="/help" Component={Help} />
+				<LoggedInRoute path="/administrator" Component={Administrator} />
 			</Switch>
 		</main>
 	);
