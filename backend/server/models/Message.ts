@@ -1,4 +1,4 @@
-import { IMessage } from '../../../@types/tagnames';
+import { IMessage } from '../../@types';
 
 /**
  *

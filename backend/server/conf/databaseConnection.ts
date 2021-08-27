@@ -1,6 +1,6 @@
 import { Pool, Client } from 'pg';
 import { config } from 'dotenv';
-import { IConnectionSettings } from '../../../@types/tagnames';
+import { IConnectionSettings } from '../../@types';
 config();
 const connectionSettings: IConnectionSettings = {
 	user: process.env.USERNAME,

@@ -8,6 +8,9 @@ import session from 'express-session';
 import { Server } from 'http';
 import { startChat } from './socket-io-endpoints';
 import cors from 'cors';
+/** Routes imports */
+import authRoutes from './routes/auth-routes';
+
 config();
 const app = express();
 const httpServer = new Server(app);
@@ -42,11 +45,11 @@ app.use(
 // Initialize express app and it's dependencies
 app.use(initialize());
 app.use(passportSession());
+require('./conf/passport');
 
 
-app.get('/', (req, res) => {
-	return res.send('Hello world');
-});
+app.use("/", authRoutes);
+
 
 httpServer.listen(app.get('port'), app.get('ip'), () => {
 	console.log(`Server listening on port ${app.get('port')}.`);

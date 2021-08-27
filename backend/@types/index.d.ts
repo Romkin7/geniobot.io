@@ -1,5 +1,18 @@
-import tagnames from './tagnames';
+export type HeadingVariants = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadingSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xlg' | 'xxlg';
+export type Sizes = 'sm' | 'md' | 'lg';
+export type TextColors = 'black' | 'white';
+export type ButtonTypes = 'submit' | 'button' | 'reset';
+export type InputTypes = 'text' | 'password' | 'email' | 'tel' | 'checkbox' | 'radio';
+export type TargetTypes = '_blank' | '_self' | '_parent' | '_top';
+export type IconNames = 'close';
 /** User and account */
+export interface IPlanType {
+	src?: string;
+	alt?: string;
+	icon?: string;
+	type?: PlanType;
+}
 type PlanType = 'free' | 'pro';
 type Statuses = 'Paid' | 'Open invoice';
 type Languages = 'Finnish' | 'English' | 'Swedish' | 'Russian' | 'Ukrainean';
@@ -71,10 +84,13 @@ interface INotification {
 }
 
 export interface IInvoice {
-	invoiceNumber: string;
-	dueDate: Date;
-	paymentDate: Date;
+	invoiceNumber: number;
+	paid: boolean;
+	createdAt: string;
+	paymentDate: string;
+	dueDate: string;
 	sum: number;
+	id: number;
 }
 export interface IFullInvoice extends IInvoice {
 	status: Statuses;
@@ -117,7 +133,16 @@ interface IUData {
 	uwebsite: string;
 	phonenumber: string;
 }
-
+export interface ITopic {
+	categories: string[];
+	topic: string;
+	description?: string;
+	id: number;
+}
+export interface IAutomation {
+	categories: ICategory[];
+	topics: ITopic[];
+}
 /** Datavbase connection */
 export interface IConnectionSettings {
 	user: string;

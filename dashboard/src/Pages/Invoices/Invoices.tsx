@@ -1,24 +1,24 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
 import InvoiceBox from '../../Components/Main/Invoices/InvoiceBox';
 import axios from 'axios';
-import { Invoice } from '../../@types';
+import { IInvoice } from '../../@types';
 import { Link, useParams } from 'react-router-dom';
 
 const Invoices: FC = () => {
-	const [invoices, setInvoices] = useState<Invoice[] | null>(null);
-	const [openInvoices, setOpenInvoices] = useState<Invoice[] | null>(null);
+	const [invoices, setInvoices] = useState<IInvoice[] | null>(null);
+	const [openInvoices, setOpenInvoices] = useState<IInvoice[] | null>(null);
 	let { id } = useParams<{id?: string}>();
 
 	const updateOpenInvoices = useCallback(() => {
-		const filteredInvoices = invoices?.filter((invoice: Invoice) => {
+		const filteredInvoices = invoices?.filter((invoice: IInvoice) => {
 			return !invoice.paid;
 		});
-		setOpenInvoices(filteredInvoices as Invoice[]);
+		setOpenInvoices(filteredInvoices as IInvoice[]);
 	}, [invoices, setOpenInvoices]);
 
 	useEffect(() => {
 		if (!invoices) {
-			axios.get('invoices.json').then((res: {data: {invoices: Invoice[]}}) => {
+			axios.get('invoices.json').then((res: {data: {invoices: IInvoice[]}}) => {
 				setInvoices(res.data.invoices);
 				updateOpenInvoices();
 			});
@@ -31,7 +31,7 @@ const Invoices: FC = () => {
 			{openInvoices ? (
 				<Link
 					to={{
-						pathname: `invoices/${openInvoices[0].number}`,
+						pathname: `invoices/${openInvoices[0].invoiceNumber}`,
 						state: { id },
 					}}
 				>
@@ -43,7 +43,7 @@ const Invoices: FC = () => {
 
 			<p className="invoices__paid">Paid invoices</p>
 			{invoices?.length &&
-				invoices.map((invoice: Invoice) => {
+				invoices.map((invoice: IInvoice) => {
 					return <InvoiceBox key={invoice.id} invoice={invoice} />;
 				})}
 		</section>

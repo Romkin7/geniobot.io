@@ -1,19 +1,19 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { Invoice } from '../../../@types';
+import { IInvoice } from '../../../@types';
 
 interface InvoiceBoxProps {
-	invoice: Invoice;
+	invoice: IInvoice;
 }
 
 const InvoiceBox: FC<InvoiceBoxProps> = ({ invoice }) => {
-	const { number, sum, dueDate, paymentDate, id } = invoice;
+	const { invoiceNumber, sum, dueDate, paymentDate, id } = invoice;
 
 	return (
 		<>
 			<div className="invoices__box">
 				<div>
-					<h2 className="invoices__box__heading">Invoice: {number} </h2>
+					<h2 className="invoices__box__heading">Invoice: {invoiceNumber} </h2>
 					<p className="invoices__box__p">Payment date: {paymentDate}</p>
 					<p className="invoices__box__p">Due date: {dueDate}</p>
 				</div>

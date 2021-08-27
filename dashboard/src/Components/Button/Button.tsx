@@ -1,5 +1,5 @@
 import React, { FC, MouseEvent } from 'react';
-import { ButtonTypes } from '../../@types/index';
+import { ButtonTypes } from '../../@types';
 
 interface IButtonProps {
 	type: ButtonTypes;

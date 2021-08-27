@@ -1,7 +1,5 @@
 import React, { FC, useContext } from 'react';
 import { Edit, DeleteOutline, FiberManualRecord } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
-import { Backdrop, Fade } from '@material-ui/core';
 import Button from '../Button/Button';
 import { AppContext } from '../../store/appContext';
 
