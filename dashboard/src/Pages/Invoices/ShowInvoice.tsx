@@ -21,7 +21,7 @@ const ShowInvoice: FC = () => {
 	const findInvoice = useCallback(() => {
 		const foundInvoice = invoices?.find((invoiceInFind: IInvoice) => invoiceInFind.id === Number(id)) as IInvoice;
 		setInvoice(foundInvoice);
-	}, [invoices, id ]);
+	}, [invoices, id]);
 
 	useEffect(() => {
 		if (!invoices) {
@@ -31,7 +31,7 @@ const ShowInvoice: FC = () => {
 		} else {
 			findInvoice();
 		}
-	}, [ setInvoices, invoices, findInvoice ]);
+	}, [setInvoices, invoices, findInvoice]);
 
 	const { invoiceNumber, createdAt, paymentDate, dueDate, sum, paid } = invoice as IInvoice;
 	return (
