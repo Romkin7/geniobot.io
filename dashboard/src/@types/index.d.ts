@@ -39,6 +39,11 @@ export interface ISavedMessage extends IMessage {
 	updatedAt: Date;
 }
 
+export interface ILoggedInUser {
+	user: IUser;
+	isAuthenticated: boolean;
+}
+
 export interface IUser {
 	username: string;
 	email: string;

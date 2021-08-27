@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 import React, { FC } from 'react';
-import { resetCategory, resetLoading, resetModal, resetUser } from '../utils';
-import { ICategory, IUser } from '../@types';
+import { resetCategory, resetLoading, resetLoggedInUser, resetModal } from '../utils';
+import { ICategory, ILoggedInUser } from '../@types';
 
 export interface IModal {
 	title: string;
@@ -22,8 +22,8 @@ interface IAppContext {
 	setLoadingAction: (loading: ILoading) => void;
 	categories: ICategory[];
 	setCategoriesAction: (categories: ICategory[]) => void;
-	user: IUser;
-	setUserAction: (user: IUser) => void;
+	loggedInUser: ILoggedInUser;
+	setLoggedInUserAction: (loggedInUser: ILoggedInUser) => void;
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -39,8 +39,8 @@ export const AppContext = createContext<IAppContext>({
 	setCategoriesAction: (categories: ICategory[]) => {
 		return;
 	},
-	user: resetUser(),
-	setUserAction: (user: IUser) => {
+	loggedInUser: resetLoggedInUser(),
+	setLoggedInUserAction: (loggedinuser: ILoggedInUser) => {
 		return;
 	},
 });
@@ -49,7 +49,7 @@ const AppContextProvider: FC = ({ children }) => {
 	const [modal, setModal] = useState<IModal>(() => resetModal());
 	const [loading, setLoading] = useState<ILoading>(() => resetLoading());
 	const [categories, setCategories] = useState<ICategory[]>(() => [resetCategory()]);
-	const [user, setUser] = useState<IUser>(() => resetUser());
+	const [loggedInUser, setLoggedInUser] = useState<ILoggedInUser>(() => resetLoggedInUser());
 
 	const setModalAction = (modal: IModal) => {
 		setModal(() => modal);
@@ -63,8 +63,8 @@ const AppContextProvider: FC = ({ children }) => {
 		setCategories(() => categories);
 	};
 
-	const setUserAction = (user: IUser) => {
-		setUser(() => user);
+	const setLoggedInUserAction = (loggedInUser: ILoggedInUser) => {
+		setLoggedInUser(() => loggedInUser);
 	};
 
 	const context = {
@@ -74,8 +74,8 @@ const AppContextProvider: FC = ({ children }) => {
 		setLoadingAction,
 		categories,
 		setCategoriesAction,
-		user,
-		setUserAction,
+		loggedInUser,
+		setLoggedInUserAction,
 	};
 
 	return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

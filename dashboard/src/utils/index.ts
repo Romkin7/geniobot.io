@@ -3,6 +3,7 @@ import {
 	ICompanyAccount,
 	ICompanySettings,
 	IInvoice,
+	ILoggedInUser,
 	ILogo,
 	IMessage,
 	INotification,
@@ -41,6 +42,13 @@ export function resetQuestion(): IQuestion {
 		question: '',
 		id: 0,
 		answer: '',
+	};
+}
+
+export function resetLoggedInUser(): ILoggedInUser {
+	return {
+		user: resetUser(),
+		isAuthenticated: false,
 	};
 }
 
