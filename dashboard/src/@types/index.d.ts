@@ -48,8 +48,7 @@ export interface IUser {
 	invoices: IInvoice[];
 	messages: IMessage[];
 	automation: ICategory[];
-    role: Roles;
-    loginUser
+	role: Roles;
 }
 interface ILogo {
 	src: string;
@@ -58,7 +57,7 @@ interface ILogo {
 
 export interface ICompanyAccount {
 	active: boolean;
-    plan: PlanType;
+	plan: PlanType;
 }
 
 export interface ICompanySettings {
@@ -66,7 +65,6 @@ export interface ICompanySettings {
 	companyName: string;
 	displayName: string;
 	logo: ILogo;
-	plan: PlanType;
 	defaultLanguage: Languages;
 	notifications: INotification[];
 }
@@ -84,7 +82,7 @@ interface INotification {
 }
 
 export interface IInvoice {
-	invoiceNumber: number;
+	invoiceNumber: string;
 	paid: boolean;
 	createdAt: string;
 	paymentDate: string;
