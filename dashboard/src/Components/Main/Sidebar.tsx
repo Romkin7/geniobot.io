@@ -27,7 +27,7 @@ const Sidebar: FC = () => {
 			<nav className="nav">
 				<ul className="nav__list">
 					<li className="nav__list__item">
-						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" exact to="/">
+						<NavLink className="nav__list__link" activeClassName="nav__list__link--active" exact to="/overview">
 							<Timeline className="nav__list__icon" />
 							Overview
 						</NavLink>

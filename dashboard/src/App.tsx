@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Sidebar from './Components/Main/Sidebar';
 import LoggedInRoute from './Components/Auth/LoggedInRoute';
@@ -19,6 +19,7 @@ import { Help, Settings } from '@material-ui/icons';
 import Administrator from './Pages/Administrator/Administrator';
 import SingleTopic from './Components/Main/Automation/SingleTopic';
 import Messages from './Pages/Messages/Messages';
+import LandingPage from './Pages/LandingPage/LandingPage';
 
 const App: FC = () => {
 	return (
@@ -26,10 +27,11 @@ const App: FC = () => {
 			<Router>
 				<Header />
 				<Switch>
+					<Route exact path="/" component={LandingPage} />
 					<LoggedOutRoute path="/login" Component={LoginPage} />
 					<Sidebar />
 					<main>
-						<LoggedInRoute path="/" exact Component={Overview} />
+						<LoggedInRoute path="/overview" exact Component={Overview} />
 						<LoggedInRoute path="/invoices" exact Component={Invoices} />
 						<LoggedInRoute path={'/invoices/:id'} Component={ShowInvoice} />
 						<LoggedInRoute path="/messages" Component={Messages} />

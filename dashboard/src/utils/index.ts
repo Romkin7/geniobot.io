@@ -48,7 +48,7 @@ export function resetQuestion(): IQuestion {
 export function resetLoggedInUser(): ILoggedInUser {
 	return {
 		user: resetUser(),
-		isAuthenticated: false,
+		isAuthenticated: true,
 	};
 }
 
