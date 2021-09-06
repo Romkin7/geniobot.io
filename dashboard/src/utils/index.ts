@@ -48,7 +48,7 @@ export function resetQuestion(): IQuestion {
 export function resetLoggedInUser(): ILoggedInUser {
 	return {
 		user: resetUser(),
-		isAuthenticated: false,
+		isAuthenticated: true,
 	};
 }
 
@@ -68,7 +68,7 @@ export function resetUser(): IUser {
 
 export function resetCompanyAccount(): ICompanyAccount {
 	return {
-		active: false,
+		active: true,
 		plan: 'free',
 	};
 }

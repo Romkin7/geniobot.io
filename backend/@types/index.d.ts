@@ -49,7 +49,6 @@ export interface IUser {
 	messages: IMessage[];
 	automation: ICategory[];
     role: Roles;
-    loginUser
 }
 interface ILogo {
 	src: string;
@@ -94,7 +93,6 @@ export interface IInvoice {
 }
 export interface IFullInvoice extends IInvoice {
 	status: Statuses;
-	createdAt: Date;
 	updatedAt: Date;
 }
 interface ILastInvoice {

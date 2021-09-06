@@ -1,6 +1,5 @@
 import React, { ComponentType, FC, useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IUser } from '../../@types';
 import { AppContext } from '../../store/appContext';
 
 interface ILoggedInRouteProps {
