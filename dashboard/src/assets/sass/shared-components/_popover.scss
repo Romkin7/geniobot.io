@@ -1,0 +1,30 @@
+.popover {
+	display: flex;
+	flex-direction: column;
+	&__popover {
+		background-color: $aquagreen;
+		margin: 1vw !important;
+		min-width: 20vw !important;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;
+	}
+
+	&__category {
+		color: $white;
+		font-family: $inter;
+		margin-bottom: 1vh;
+		font-size: 1.25rem;
+	}
+
+	&__title {
+		color: $spacecadet !important;
+		font-size: 1.3rem !important;
+		font-family: $inter !important;
+	}
+
+	&__button {
+	}
+}
