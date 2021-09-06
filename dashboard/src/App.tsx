@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Sidebar from './Components/Main/Sidebar';
@@ -7,7 +7,7 @@ import LoggedOutRoute from './Components/Auth/LoggedOutRoute';
 import Footer from './Components/Footer/Footer';
 import Loading from './Components/Loading/Loading';
 import LoginPage from './Pages/LoginPage/LoginPage';
-import AppContextProvider from './store/appContext';
+import { AppContext } from './store/appContext';
 import Modal from './Components/Modal/Modal';
 import Overview from './Pages/Overview/Overview';
 import Invoices from './Pages/Invoices/Invoices';
@@ -22,14 +22,15 @@ import Messages from './Pages/Messages/Messages';
 import LandingPage from './Pages/LandingPage/LandingPage';
 
 const App: FC = () => {
+	const { loggedInUser } = useContext(AppContext);
+	const {isAuthenticated} = loggedInUser;
 	return (
-		<AppContextProvider>
 			<Router>
 				<Header />
+				{isAuthenticated && <Sidebar />}
 				<Switch>
 					<Route exact path="/" component={LandingPage} />
 					<LoggedOutRoute path="/login" Component={LoginPage} />
-					<Sidebar />
 					<main>
 						<LoggedInRoute path="/overview" exact Component={Overview} />
 						<LoggedInRoute path="/invoices" exact Component={Invoices} />
@@ -48,7 +49,6 @@ const App: FC = () => {
 				<Footer />
 				<Loading />
 			</Router>
-		</AppContextProvider>
 	);
 };
 

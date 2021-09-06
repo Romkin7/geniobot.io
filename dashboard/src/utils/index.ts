@@ -68,7 +68,7 @@ export function resetUser(): IUser {
 
 export function resetCompanyAccount(): ICompanyAccount {
 	return {
-		active: false,
+		active: true,
 		plan: 'free',
 	};
 }
